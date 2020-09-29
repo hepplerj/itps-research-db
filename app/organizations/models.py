@@ -2,5 +2,5 @@ from django.db import models
 
 #This is a stub record based off the initial inventory
 class Organization(models.Model):
-	name = models.Charfield(max-length=200)
-	notes = models.Textfild(blank=true, null=true)
+	name = models.CharField(max_length=765)
+	notes = models.TextField(blank=True, null=True)
