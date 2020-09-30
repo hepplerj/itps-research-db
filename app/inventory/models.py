@@ -12,12 +12,18 @@ class TGM_Genre(models.Model):
 	name = models.CharField(max_length=50)
 	notes = models.TextField(blank=True, null=True)
 
+	def __str__(self):
+		return self.name
+
 #User editable list of all previous inventories/other sources of data for the inventory
 class Original_Source(models.Model):
 	name = models.CharField(max_length=765)
 	notes = models.TextField(blank=True, null=True)
 
-#Fields pulled almost verbatim from most recent inventory, which was design by Alexandra Montgomery
+	def __str__(self):
+		return self.name
+
+#Fields pulled almost verbatim from most recent inventory, which was designed by Alexandra Montgomery
 #Heavily based on MARC format
 class Item(models.Model):
 	#Choice lists used in fields below
@@ -48,7 +54,7 @@ class Item(models.Model):
 
 	accession_number = models.CharField(max_length=100, blank=True, null=True)
 	short_title = models.CharField(max_length=200)
-	title = models.TextField
+	title = models.TextField(blank=True,null=True)
 	pub_date = models.DateField(auto_now=False,auto_now_add=False, blank=True, null=True)
 	pub_date_certainty = models.SmallIntegerField(choices=DATE_CERTAINTY_CHOICES, default=0)
 	size = models.CharField(max_length=100, blank=True, null=True)
@@ -66,11 +72,17 @@ class Item(models.Model):
 	pub_places = models.ManyToManyField(Location, blank=True)
 	notes = models.TextField(blank=True, null=True)
 
+	def __str__(self):
+		return self.short_title
+
 #User editable list of Creator roles
 #ex. author, editor, translator, printer, lithographer, etc
 class Creator_Role(models.Model):
 	name = models.CharField(max_length=200)
 	notes = models.TextField(blank=True, null=True)
+
+	def __str__(self):
+		return self.name
 
 
 """
@@ -79,20 +91,26 @@ with their associated roles.
 
 """
 class Item_Creator(models.Model):
-	person = models.ManyToManyField(Person, blank=True)
-	organization = models.ManyToManyField(Organization, blank=True)
-	item = models.ManyToManyField(Item)
-	role = models.ManyToManyField(Creator_Role)
+	people = models.ManyToManyField(Person, blank=True)
+	organizations = models.ManyToManyField(Organization, blank=True)
+	items = models.ManyToManyField(Item)
+	roles = models.ManyToManyField(Creator_Role)
 	notes = models.TextField(blank=True, null=True)
+
+	def __str__(self):
+		return '%s %s %s %s' % (self.person, self.organization, self.item, self.role)
 
 class Credit(models.Model):
 	#Choice list used below
 	TASK_CHOICES = [
-		(1, 'created'),
-		(2, 'enhanced'),
-		(3, 'reviewed')
+		('created', 'created'),
+		('enhanced', 'enhanced'),
+		('reviewed', 'reviewed')
 	]
 
 	user = models.ForeignKey(User, models.PROTECT)
 	item_record = models.ForeignKey(Item, models.PROTECT)
-	task = models.SmallIntegerField(TASK_CHOICES)
+	task = models.CharField(max_length=20, choices=TASK_CHOICES)
+
+	def __str__(self):
+		return '%s %s' % (self.user, self.item_record)
