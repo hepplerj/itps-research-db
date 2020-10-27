@@ -14,4 +14,7 @@ fi
 python manage.py flush --no-input
 python manage.py migrate
 
+#create a django superuser
+python manage.py createsuperuser --no-input
+
 exec "$@"
