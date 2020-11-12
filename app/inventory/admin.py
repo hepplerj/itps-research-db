@@ -19,10 +19,12 @@ class CreditInline(admin.TabularInline):
     model = Credit
     extra = 1
 
+
 # Make Item_Creator inline
 class Item_CreatorInline(admin.TabularInline):
     model = Item_Creator
     extra = 1
+
 
 @admin.register(Creator_Role)
 class Creator_RoleAdmin(admin.ModelAdmin):
