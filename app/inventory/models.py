@@ -94,14 +94,14 @@ class Creator_Role(models.Model):
 # Creators allows for an undeliminated number of people and organizations to be listed as creators
 # with their associated roles.
 class Item_Creator(models.Model):
-    people = models.ManyToManyField(Person, blank=True)
-    organizations = models.ManyToManyField(Organization, blank=True)
-    items = models.ManyToManyField(Item)
-    roles = models.ManyToManyField(Creator_Role)
+    people = models.ForeignKey(Person, on_delete=models.RESTRICT, blank=True, null=True)
+    organization = models.ForeignKey(Organization, on_delete=models.RESTRICT, blank=True, null=True)
+    item = models.ForeignKey(Item, on_delete=models.RESTRICT)
+    role = models.ForeignKey(Creator_Role, on_delete=models.RESTRICT)
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return '%s %s %s %s' % (self.person, self.organization, self.item, self.role)
+        return '%s. %s, %s & %s' % (self.item, self.role, self.people, self.organization)
 
 
 class Credit(models.Model):
