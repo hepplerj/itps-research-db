@@ -19,6 +19,10 @@ class CreditInline(admin.TabularInline):
     model = Credit
     extra = 1
 
+# Make Item_Creator inline
+class Item_CreatorInline(admin.TabularInline):
+    model = Item_Creator
+    extra = 1
 
 @admin.register(Creator_Role)
 class Creator_RoleAdmin(admin.ModelAdmin):
@@ -27,7 +31,7 @@ class Creator_RoleAdmin(admin.ModelAdmin):
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    inlines = (CreditInline,)
+    inlines = (Item_CreatorInline, CreditInline,)
     fieldsets = (
         (None, {
             'fields': (('accession_number', 'record_status'), 'short_title', 'title', ('pub_date', 'pub_date_certainty'), 'pub_places', ('edition', 'volume', 'number'), 'other_description', 'original_source', 'notes')
