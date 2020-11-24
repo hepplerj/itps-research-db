@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import DateRangeField
 from django.db import models
 
 # Pull in central model from each of the following apps
@@ -59,7 +60,7 @@ class Item(models.Model):
     accession_number = models.CharField(max_length=100, blank=True, null=True)
     short_title = models.CharField(max_length=200)
     title = models.TextField(blank=True, null=True)
-    pub_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+    pub_date = DateRangeField(blank=True, null=True)
     pub_date_certainty = models.SmallIntegerField(choices=DATE_CERTAINTY_CHOICES, default=0)
     size = models.CharField(max_length=100, blank=True, null=True)
     physical_description = models.TextField(blank=True, null=True)
