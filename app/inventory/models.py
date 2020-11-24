@@ -99,6 +99,7 @@ class Item_Creator(models.Model):
     organization = models.ForeignKey(Organization, on_delete=models.RESTRICT, blank=True, null=True)
     item = models.ForeignKey(Item, on_delete=models.RESTRICT)
     role = models.ForeignKey(Creator_Role, on_delete=models.RESTRICT)
+    pseudonym = models.CharField(max_length=75, blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
