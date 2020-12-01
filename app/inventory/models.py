@@ -11,9 +11,19 @@ from django.contrib.auth.models import User
 # For definition of Genres in the TGM see https://www.loc.gov/rr/print/tgm2/
 
 
+class TGM_GenreManager(models.Manager):
+    def get_by_natural_key(self, name):
+        return self.get(name=name)
+
+
 class TGM_Genre(models.Model):
     name = models.CharField(max_length=50)
     notes = models.TextField(blank=True, null=True)
+
+    objects = TGM_GenreManager()
+
+    def natural_key(self):
+        return (self.name)
 
     def __str__(self):
         return self.name
