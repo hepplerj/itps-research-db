@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 
-from .models import Organization
+from .models import Organization, Membership
 from inventory.models import Item_Creator
 
 # class Item_CreatorInline(admin.StackedInline):
@@ -15,3 +15,4 @@ class OrganizationAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Organization, OrganizationAdmin)
+admin.site.register(Membership)
