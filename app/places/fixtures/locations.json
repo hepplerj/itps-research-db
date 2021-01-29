@@ -1,0 +1,451 @@
+[
+    {
+     "model": "places.location",
+     "pk": 1,
+     "fields": {
+        "name": "Albany",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 2,
+     "fields": {
+        "name": "Altoona, PA",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 3,
+     "fields": {
+        "name": "Atlantic City, NJ",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 4,
+     "fields": {
+        "name": "Barn-Elm Farm, Richmond-Upon-Thames, UK",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 5,
+     "fields": {
+        "name": "Belfast",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 6,
+     "fields": {
+        "name": "Bordentown, NJ",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 7,
+     "fields": {
+        "name": "Boston",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 8,
+     "fields": {
+        "name": "Botley, Southhampton, UK",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 9,
+     "fields": {
+        "name": "Bristol",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 10,
+     "fields": {
+        "name": "Cap-François, Haiti",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 11,
+     "fields": {
+        "name": "Dublin",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 12,
+     "fields": {
+        "name": "East Chester, NY",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 13,
+     "fields": {
+        "name": "East Orange, NJ",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 14,
+     "fields": {
+        "name": "Edinburgh",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 15,
+     "fields": {
+        "name": "Évreux",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 16,
+     "fields": {
+        "name": "Granville, Middletown, NJ",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 17,
+     "fields": {
+        "name": "Hartford, CT",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 18,
+     "fields": {
+        "name": "Kingston, Ulster County",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 19,
+     "fields": {
+        "name": "Lewes, UK",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 20,
+     "fields": {
+        "name": "London",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 21,
+     "fields": {
+        "name": "Minneapolis",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 22,
+     "fields": {
+        "name": "Mount Vernon, VA",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 23,
+     "fields": {
+        "name": "Newark, NJ",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 24,
+     "fields": {
+        "name": "Newburyport, MA",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 25,
+     "fields": {
+        "name": "Newport, RI",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 26,
+     "fields": {
+        "name": "New Rochelle, NY",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 27,
+     "fields": {
+        "name": "New York",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 28,
+     "fields": {
+        "name": "North Mianus, CT",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 29,
+     "fields": {
+        "name": "Old Westbury, NY",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 30,
+     "fields": {
+        "name": "Orange, NJ",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 31,
+     "fields": {
+        "name": "Oxford",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 32,
+     "fields": {
+        "name": "Paris",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 33,
+     "fields": {
+        "name": "Paterson, NJ",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 34,
+     "fields": {
+        "name": "Philadelphia",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 35,
+     "fields": {
+        "name": "Portland, ME",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 36,
+     "fields": {
+        "name": "Portsmouth, NH",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 37,
+     "fields": {
+        "name": "Rennes",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 38,
+     "fields": {
+        "name": "Salem, MA",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 39,
+     "fields": {
+        "name": "San Francisco, CA",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 40,
+     "fields": {
+        "name": "Springfield, MS",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 41,
+     "fields": {
+        "name": "Stratford, CT",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 42,
+     "fields": {
+        "name": "Warren, RI",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 43,
+     "fields": {
+        "name": "Washington DC",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 44,
+     "fields": {
+        "name": "Worcester, Massachusetts",
+        "notes": ""
+        }
+    }    
+
+,
+    {
+     "model": "places.location",
+     "pk": 45,
+     "fields": {
+        "name": "Yonkers, NY",
+        "notes": ""
+        }
+    }    
+
+]

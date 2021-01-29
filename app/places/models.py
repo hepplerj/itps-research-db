@@ -10,15 +10,6 @@ class Region(models.Model):
 	def __str__(self):
 		return self.name
 
-class Location(models.Model):
-    name = models.CharField(max_length=100)
-    latitude = models.FloatField(blank=True, null=True)
-    longitude = models.FloatField(blank=True, null=True)
-    regions = models.ManyToManyField(Region, blank=True, null=True)
-    notes = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.name
 
 
 class State(models.Model):
@@ -38,6 +29,18 @@ class State(models.Model):
 		return self.name
 
 
+class Location(models.Model):
+    name = models.CharField(max_length=100)
+    state = models.ForeignKey(State, on_delete=models.CASCADE, blank=True, null=True)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
+    regions = models.ManyToManyField(Region, blank=True, null=True)
+    notes = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Empire(models.Model):
 	name = models.CharField(max_length=20)
 	claims = models.ManyToManyField(State, through='Claim', blank=True, null=True)
@@ -45,6 +48,7 @@ class Empire(models.Model):
 
 	def __str__(self):
 		return self.name
+
 
 class Claim(models.Model):
 	state = models.ForeignKey(State, on_delete=models.CASCADE)
