@@ -43,6 +43,8 @@ class ItemAdmin(admin.ModelAdmin):
             'fields': ('tgm_genre', 'size', 'physical_description', 'condition_notes', 'digitization_recommendation', 'iona_holdings')
         })
     )
+    # leaving off physical descriptions for now, since all work is being done online and offsite
+    list_display = ('accession_number', 'short_title', 'pub_date', 'pub_date_certainty', 'edition', 'volume', 'number', 'tgm_genre', 'digitization_recommendation', 'other_description', 'notes')
 
 
 @admin.register(Item_Creator)

@@ -4,13 +4,13 @@ from places.models import State
 
 
 class Person(models.Model):
-    #this is awkward, use the notes field!
+    # this is awkward, use the notes field!
     GENDER_CHOICES = [
-        ('man','man'),
-        ('woman','woman'),
-        ('non-binary','non-binary'),
-        ('other','other - describe in notes field'),
-        ('unknown','unknown')
+        ('man', 'man'),
+        ('woman', 'woman'),
+        ('non-binary', 'non-binary'),
+        ('other', 'other - describe in notes field'),
+        ('unknown', 'unknown')
     ]
 
     name = models.CharField(max_length=100)
