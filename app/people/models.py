@@ -19,9 +19,9 @@ class Person(models.Model):
     death_date = DateRangeField(blank=True, null=True)
     gender = models.CharField(max_length=15, choices=GENDER_CHOICES, blank=True, null=True)
     home_state = models.ForeignKey(State, models.SET_NULL, blank=True, null=True)
-    viaf = models.CharField(max_length=100, blank=True, null=True)
-    wikipedia = models.CharField(max_length=100, blank=True, null=True)
-    getty = models.CharField(max_length=100, blank=True, null=True)
+    viaf = models.URLField(max_length=100, blank=True, null=True)
+    wikipedia = models.URLField(max_length=100, blank=True, null=True)
+    getty = models.URLField(max_length=100, blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):

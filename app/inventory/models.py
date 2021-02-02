@@ -28,6 +28,10 @@ class TGM_Genre(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Genre (TGM)'
+        verbose_name_plural = 'Genres (TGM)'
+
 
 # User editable list of all previous inventories/other sources of data for the inventory
 class Original_Source(models.Model):
@@ -36,6 +40,10 @@ class Original_Source(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Earlier Inventory'
+        verbose_name_plural = 'Earlier Inventories'
 
 
 # Fields pulled almost verbatim from most recent inventory, which was designed by Alexandra Montgomery
@@ -68,7 +76,7 @@ class Item(models.Model):
     ]
 
     accession_number = models.CharField(max_length=100, blank=True, null=True)
-    short_title = models.CharField(max_length=200)
+    short_title = models.CharField(max_length=50)
     title = models.TextField(blank=True, null=True)
     pub_date = DateRangeField(blank=True, null=True)
     pub_date_certainty = models.SmallIntegerField(choices=DATE_CERTAINTY_CHOICES, default=0)
@@ -101,11 +109,14 @@ class Creator_Role(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Creator Role'
+
 
 # Creators allows for an undeliminated number of people and organizations to be listed as creators
 # with their associated roles.
 class Item_Creator(models.Model):
-    people = models.ForeignKey(Person, on_delete=models.RESTRICT, blank=True, null=True)
+    person = models.ForeignKey(Person, on_delete=models.RESTRICT, blank=True, null=True)
     organization = models.ForeignKey(Organization, on_delete=models.RESTRICT, blank=True, null=True)
     item = models.ForeignKey(Item, on_delete=models.RESTRICT)
     role = models.ForeignKey(Creator_Role, on_delete=models.RESTRICT)
@@ -113,7 +124,10 @@ class Item_Creator(models.Model):
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return '%s. %s, %s & %s' % (self.item, self.role, self.people, self.organization)
+        return '%s. %s, %s & %s' % (self.item, self.role, self.person, self.organization)
+
+    class Meta:
+        verbose_name = 'Creator'
 
 
 class Credit(models.Model):
@@ -129,4 +143,4 @@ class Credit(models.Model):
     task = models.CharField(max_length=20, choices=TASK_CHOICES)
 
     def __str__(self):
-        return '%s %s' % (self.user, self.item_record)
+        return '%s %s %s' % (self.user, self.task, self.item_record)

@@ -33,6 +33,7 @@ class Location(models.Model):
     state = models.ForeignKey(State, on_delete=models.CASCADE, blank=True, null=True)
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
+    geoname = models.URLField(max_length=100, blank=True, null=True)
     regions = models.ManyToManyField(Region, blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
 

@@ -11,6 +11,13 @@ __pycache__/
 .env.prod.db
 *$py.class
 
+# Early fixtures for first data load.
+app/*/fixtures/initial*.json
+app/*/fixtures/*.txt
+
+# User data, includes passwords
+users-dev.json
+users-prod.json
 
 #Reminder of where to find docker instructions
 dockerizing.txt
