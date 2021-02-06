@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+{% endblock %} <!-- scripts -->
+
+{% block content %}
+<section>
+	<h1>Hello World!</h1>
+</section>
+
+<section>
+	<h1>Cataloging: By the Numbers</h1>
+	<ul>
+	    <li><strong>Items:</strong> {{ num_items }}</li>
+	    <li><strong>People:</strong> {{ num_people }}</li>
+	    <li><strong>Organizations:</strong> {{ num_orgs }}</li>
+	    <li><strong>Places:</strong> {{ num_places }}</li>
+  </ul>
+</section>
+
+<section>
+	<h1>Data Visualizations</h1>
+	<div id="mapid" style="width: 600px; height: 400px"></div> <!-- end mapid -->
+		<script>
+			var tpnha_map = L.map('mapid').setView([35.0, -35.0], 2);
+
+			var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+				subdomains: 'abcd',
+				minZoom: 1,
+				maxZoom: 16,
+				ext: 'jpg'
+			});
+			tpnha_map.addLayer(Stamen_Watercolor);
+
+		</script>
+
+</section>
+
+
+{% endblock %}

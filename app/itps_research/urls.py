@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from inventory import views as item_views
+from inventory import views
 
 urlpatterns = [
 
-    # for the wordpress dashboard
-    path('items_dashboard.json', item_views.items_for_wp_dashboard),
-
+    path('', views.index, name='index'),
+    
+    #Enables the entire admin 
     path('admin/', admin.site.urls),
 ]

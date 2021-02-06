@@ -42,7 +42,7 @@ class Location(models.Model):
 
 
 class Empire(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=75)
     claims = models.ManyToManyField(State, through='Claim', blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
 
@@ -58,4 +58,4 @@ class Claim(models.Model):
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return '%s %s (%d - %d)' % (self.empire, self.state, self.start_year, self.end_year)
+        return '%s %s (%s - %s)' % (self.empire, self.state, str(self.start_year), str(self.end_year))

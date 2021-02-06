@@ -1,0 +1,40 @@
+<!-- 
+    This is the base template. 
+	It contains the header, footer, and nav. 
+	All other templates extend this one.
+-->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{% block title%}The ITPS Archival Research Database{% endblock %}</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'onepage.css' %}"/>
+	{% block scripts %}{% endblock %}
+
+</head>
+<body>
+	<header>
+		<div id="login">
+			<a href="{% url 'admin:index' %}">Staff Login</a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="#viz">DataViz</a></li>
+				<li><a href="#TPNHA">The Archive</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		{% block content %}{% endblock %}
+	</main>
+	<footer>
+		<p>Site and Database Designed by <a href="http://lemoneggsdata.com" target="_blank">Lemon & Eggs Data Design</a> using <a href="https://www.djangoproject.com/" target="_blank">Django</a> and <a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a>.</p>
+		<p>Copyright Iona College 2021</p>
+	</footer>
+</body>
+</html>

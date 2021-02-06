@@ -1,0 +1,136 @@
+html {
+    background-image:url(photos/pigments.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-x: initial, initial;
+    background-position-y:initial, initial;
+    background-size: cover;
+
+}
+
+body {
+    font-family:"Open Sans", sans-serif;
+    color: #444;
+    font-size: 1.1em;
+    line-height: 1.4em;
+    width: 66%;
+    margin: 0 auto;
+}
+
+a {
+    color: #4385C3;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c32970;
+}
+
+nav {
+    width: 66%;
+    position: fixed;
+    background-color: rgba(0,0,0,.85);
+    top:0;
+    right:0;
+    left:0;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 2000;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    padding: 1em 1.1em;
+}
+
+nav a {
+	text-decoration: none;
+    font-weight: bold;
+	color: silver;
+}
+
+nav a:active {
+    color: #fff;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+nav a:before {
+    content = '' !important;
+}
+
+#name_img {
+    position: relative;
+    float: left;
+    width: 40%;
+    background-color: rgba(31,74,120,.8);
+    padding: 10px 20px;
+    margin-top: 4em;
+}
+
+#array_img {
+    position: relative;
+    float: right;
+    margin-top: -1em;
+    width: 70%;
+    padding: 10px 20px;
+    background-color: rgba(105,46,97,.85);
+}
+
+/* This allows for the images to float below the nav even when the screen is very small*/
+@media (max-width: 760px) { 
+    #name_img {
+        margin-top: 6em;
+    }
+}
+
+/*  This is for the main chunks of text */
+
+section {
+    position: relative;
+    background-color: #fff;
+    padding: 60px;
+    margin: 100px 0;
+    display:block;
+}
+
+section.top {
+    clear:both;
+    padding: 10px 60px;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    margin:-60px -60px 60px;
+    padding: 60px 60px 30px 60px;
+    color: #fff;
+    background: -webkit-linear-gradient(#1f4a78,#333); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#1f4a78,#333);  /*For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#1f4a78,#333); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#1f4a78,#e1c488);
+    border-bottom: #e1c488 thin dotted;
+}
+
+h2 {
+    color: #b10000;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+#mapid {
+    height: 180px;
+}
+
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding:30px 0;
+    color: #fff;
+    line-height: 1em;
+    background-color: rgba(0,0,0,.8);
+}
