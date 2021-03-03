@@ -15,6 +15,9 @@ __pycache__/
 app/*/fixtures/initial*.json
 app/*/fixtures/*.txt
 
+# Django staticfiles directory, created by manage.py collectstatic
+app/staticfiles
+
 # User data, includes passwords
 users-dev.json
 users-prod.json

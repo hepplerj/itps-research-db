@@ -34,7 +34,7 @@ class Location(models.Model):
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
     geoname = models.URLField(max_length=100, blank=True, null=True)
-    regions = models.ManyToManyField(Region, blank=True, null=True)
+    regions = models.ManyToManyField(Region, blank=True)
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -43,7 +43,7 @@ class Location(models.Model):
 
 class Empire(models.Model):
     name = models.CharField(max_length=75)
-    claims = models.ManyToManyField(State, through='Claim', blank=True, null=True)
+    claims = models.ManyToManyField(State, through='Claim', blank=True)
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):

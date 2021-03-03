@@ -130,17 +130,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Fixtures Directory for project wide data
+
+FIXTURE_DIRS = [os.path.join(BASE_DIR, "fixtures")]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
-
 STATIC_URL = '/staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-# STATIC_URL = '/staticfiles/'
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")

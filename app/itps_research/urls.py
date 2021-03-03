@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from inventory import views
+from inventory import views as inventory_views
+from places import views as place_views
 
 urlpatterns = [
 
-    path('', views.index, name='index'),
+    path('', inventory_views.index, name='index'),
+    path('data/locations.geojson', place_views.make_locations_geojson, name = 'locations_geojson'),
     
     #Enables the entire admin 
     path('admin/', admin.site.urls),

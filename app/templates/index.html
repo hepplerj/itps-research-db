@@ -7,10 +7,12 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
 {% endblock %} <!-- scripts -->
 
 {% block content %}
-<section>
+<section class="top">
 	<h1>Hello World!</h1>
 </section>
 
@@ -26,9 +28,9 @@
 
 <section>
 	<h1>Data Visualizations</h1>
-	<div id="mapid" style="width: 600px; height: 400px"></div> <!-- end mapid -->
+	<div id="mapid" style="width: 100%; height: 300px"></div> <!-- end mapid -->
 		<script>
-			var tpnha_map = L.map('mapid').setView([35.0, -35.0], 2);
+			var tpnha_map = L.map('mapid').setView([35.0, -45.0], 2);
 
 			var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
 				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -38,6 +40,11 @@
 				ext: 'jpg'
 			});
 			tpnha_map.addLayer(Stamen_Watercolor);
+
+			var geojson = new L.GeoJSON.AJAX("data/locations.geojson");
+			geojson.on('data:loaded', function() {
+				geojson.addTo(tpnha_map)
+			});
 
 		</script>
 
