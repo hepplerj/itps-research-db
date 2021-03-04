@@ -21,8 +21,8 @@ from places import views as place_views
 urlpatterns = [
 
     path('', inventory_views.index, name='index'),
-    path('data/locations.geojson', place_views.make_locations_geojson, name = 'locations_geojson'),
-    
-    #Enables the entire admin 
+    path('data/locations.geojson', place_views.make_locations_geojson, name='locations_geojson'),
+
+    # Enables the entire admin
     path('admin/', admin.site.urls),
 ]

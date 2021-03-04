@@ -52,7 +52,7 @@ class Creator_RoleAdmin(admin.ModelAdmin):
 class ItemAdmin(admin.ModelAdmin):
     inlines = (Item_CreatorInline, CreditInline,)
     list_filter = ('tgm_genre', 'digitization_recommendation', 'pub_date_certainty')
-    search_fields = ['accession_number','title', 'other_description', 'notes']
+    search_fields = ['accession_number', 'title', 'other_description', 'notes']
     fieldsets = (
         (None, {
             'fields': ('accession_number', 'record_status')
