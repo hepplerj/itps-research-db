@@ -110,8 +110,8 @@ nav a:before {
 @media (max-width: 760px) { 
     #name_img {
         margin-top: 6em;
-    }
-}
+   
+} }
 
 /*  This is for the main chunks of text */
 
@@ -135,9 +135,34 @@ h1 {
 }
 
 h2 {
-    font-size: 1.3
+    font-size: 1.3em;
     color: var(--maroon);
     font-family: Colus;
+}
+
+.card {
+    color: var(--maroon);
+    font-family: Colus;
+    text-align: center;
+    float: left;
+    width: 25%;
+}
+
+.card p.number {
+    font-size: 2.2em;
+    margin-bottom: 0;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 100%;
+    }
 }
 
 #mapid {

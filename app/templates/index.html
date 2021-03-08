@@ -13,17 +13,36 @@
 
 {% block content %}
 <section class="top">
-	<h1>Hello World!</h1>
+	<h1>The ITPS Archival Research Database</h1>
+	<p>The ITPS Archival Research Database holds, expands, and analyzes the inventory of the Thomas Paine National Historical Association Collection housed in the Ryan Library at Iona College in New Rochelle, New York.</p>
+	<p>The Archival Research Database is currently locked to ITPS and Ryan Library staff. For more information on the TPHNA Collection, including whom to contact with questions regarding the physical archive, visit <a href="http://theitps.org/archives/tpnha/" target="_blank">the TPNHA Collection page on the ITPS Research Portal</a>.</p>
+
+<!-- 	<p>With generous funding from the Gardiner Foundation, The ITPS has begun a multi-year project to create a Digital Archive from the physical TPNHA Collection. The Archival Research Database contains the foundational metadata for the future Digital Archive and provides Iona College students, faculty, and staff a way to create and enhance inventory records while also answering recombinatorial research queries.</p> -->
 </section>
 
 <section>
-	<h1>Cataloging: By the Numbers</h1>
-	<ul>
-	    <li><strong>Items:</strong> {{ num_items }}</li>
-	    <li><strong>People:</strong> {{ num_people }}</li>
-	    <li><strong>Organizations:</strong> {{ num_orgs }}</li>
-	    <li><strong>Places:</strong> {{ num_places }}</li>
-  </ul>
+	<h1>TPNHA Inventory Dashboard</h1>
+	<p>We intend to have the TPNHA inventory finalized by Summer 2022. We estimate that there are approximately one thousand items in the collection, as recieved by Iona College. In the meantime, you can follow our progress in real time. We will only provide item specific details for item records that have completed our rigorous review process.</p>
+	<p>As of <em>right now</em>, the ITPS Archival Research Database contains records for:</p>
+	<div class="row">
+		<div class="card">
+			<p class="number">{{ num_items }}</p>
+			<p class="type">Items</p>
+		</div>
+		<div class="card">
+			<p class="number">{{ num_people }}</p>
+			<p class="type">People</p>
+		</div>
+		<div class="card">
+			<p class="number">{{ num_orgs }}</p>
+			<p class="type">Organizations</p>
+		</div>
+		<div class="card">
+			<p class="number">{{ num_places }}</p>
+			<p class="type">Places</p>
+		</div>
+	</div> <!-- end row -->
+
 </section>
 
 <section>
