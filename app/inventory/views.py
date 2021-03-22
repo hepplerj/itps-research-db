@@ -60,8 +60,3 @@ def make_items_by_status_json(request):
     all_items['children'][0]['children'] = items_by_status
 
     return JsonResponse(all_items)
-
-
-        # subtotal = Item.objects.filter(record_status=choice)
-    # num_items_complete = Item.objects.filter(record_status="complete")
-    # num_items
