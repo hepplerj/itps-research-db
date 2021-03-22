@@ -29,3 +29,39 @@ def index(request):
     }
 
     return render(request, 'index.html', context=by_the_nums)
+
+
+def make_items_by_status_json(request):
+    """Small json file with data for treemap viz based on record status (complete/incomplete/review/reviewed)"""
+
+    num_items = Item.objects.all().count()
+    est_remaining = 1000 - num_items
+    all_items = {
+        "name": "Probable Items",
+        "children": [
+            {
+                "name": "Cataloged",
+                "children": []
+            },
+            {
+                "name": "Estimated Remaining",
+                "value": est_remaining
+            }
+        ]
+    }
+
+    items_by_status = []
+    for choice in Item._meta.get_field('record_status').choices:
+        num_status = {
+            "name": choice[1],
+            "value": Item.objects.filter(record_status=choice[0]).count()
+        }
+        items_by_status.append(num_status)
+    all_items['children'][0]['children'] = items_by_status
+
+    return JsonResponse(all_items)
+
+
+        # subtotal = Item.objects.filter(record_status=choice)
+    # num_items_complete = Item.objects.filter(record_status="complete")
+    # num_items

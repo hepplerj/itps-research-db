@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block scripts %}
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
+
+<script src="https://d3js.org/d3.v4.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+	integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+	crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+	integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+	crossorigin=""></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
 {% endblock %} <!-- scripts -->
@@ -22,7 +25,7 @@
 
 <section>
 	<h1>TPNHA Inventory Dashboard</h1>
-	<p>We intend to have the TPNHA inventory finalized by Summer 2022. We estimate that there are approximately one thousand items in the collection, as recieved by Iona College. In the meantime, you can follow our progress in real time. We will only provide item specific details for item records that have completed our rigorous review process.</p>
+	<p>We intend to have the TPNHA Collection's inventory finalized by Summer 2022. We estimate that there are approximately one thousand items in the collection, as recieved by Iona College. In the meantime, you can follow our progress in real time. We will only provide item specific details for item records that have completed our rigorous review process.</p>
 	<p>As of <em>right now</em>, the ITPS Archival Research Database contains records for:</p>
 	<div class="row">
 		<div class="card">
@@ -42,6 +45,10 @@
 			<p class="type">Places</p>
 		</div>
 	</div> <!-- end row -->
+	<p>All item records are marked according to their cataloging status as complete, incomplete, review, or reviewed. Here is a breakdown of the <span style="color:var(--maroon);">{{num_items}}</span> records by current status.</p>
+	<div id="status-treemap"></div>
+	<script src="{% static 'javascript/static-treemap.js' %}"></script>
+
 
 </section>
 

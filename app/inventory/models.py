@@ -64,10 +64,10 @@ class Item(models.Model):
         ('maybe', 'maybe')
     ]
     RECORD_STATUS_CHOICES = [
-        ('complete', 'complete'),
-        ('incomplete', 'incomplete'),
-        ('review', 'review'),
-        ('reviewed', 'reviewed')
+        ('complete', 'Complete'),
+        ('incomplete', 'Incomplete'),
+        ('review', 'Review'),
+        ('reviewed', 'Reviewed')
     ]
     IONA_HOLDINGS_CHOICES = [
         ('original', 'original'),

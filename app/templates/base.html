@@ -17,15 +17,12 @@
 </head>
 <body>
 	<header>
-		<div id="login">
-			<a href="{% url 'admin:index' %}">Staff Login</a>
-		</div>
 		<nav>
 			<ul>
-				<li><a href="#viz">DataViz</a></li>
-				<li><a href="#TPNHA">The Archive</a></li>
+				<li><a href="#viz">Dashboard</a></li>
+				<li><a href="#TPNHA">DataViz</a></li>
 				<li><a href="#about">About</a></li>
-				<li><a href="contact">Contact</a></li>
+				<li><a href="{% url 'admin:index' %}">Login</a></li>
 			</ul>
 		</nav>
 	</header>

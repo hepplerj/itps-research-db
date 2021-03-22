@@ -29,7 +29,6 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-
 }
 
 body {
@@ -158,6 +157,16 @@ h2 {
     display: table;
     clear: both;
 }
+
+.treemap .node {
+    font-size: 100%;
+    line-height: 150%;
+    overflow: hidden;
+    position: absolute;
+    text-indent: 5%;
+    color: #FFF;
+}
+
 
 @media (max-width: 600px) {
     .card {
