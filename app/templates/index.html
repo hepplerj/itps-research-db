@@ -20,9 +20,10 @@
 	<h1>The ITPS Archival Research Database</h1>
 	<p>The ITPS Archival Research Database holds, expands, and analyzes the inventory of the Thomas Paine National Historical Association Collection housed in the Ryan Library at Iona College in New Rochelle, New York.</p>
 	<p>The Archival Research Database is currently locked to ITPS and Ryan Library staff. For more information on the TPHNA Collection, including whom to contact with questions regarding the physical archive, visit <a href="http://theitps.org/archives/tpnha/" target="_blank">the TPNHA Collection page on the ITPS Research Portal</a>.</p>
-</section>
 
 <a name="dashboard"></a>
+</section>
+
 <section>
 	<h1>TPNHA Inventory Dashboard</h1>
 	<p>We intend to have the TPNHA Collection's inventory finalized by Summer 2022. We estimate that there are approximately one thousand items in the collection, as recieved by Iona College. In the meantime, you can follow our progress in real time. We will only provide item specific details for item records that have completed our rigorous review process.</p>
@@ -49,13 +50,7 @@
 	<div id="status-treemap"></div>
 	<script src="{% static 'javascript/static-treemap.js' %}"></script>
 
-
-</section>
-
-<a name="dataviz"></a>
-<section>
-	<h1>Data Visualizations</h1>
-	<p>This map shows the place of publication/creation (when known) for each item record in the Archival Research Database. </p>
+	<p>This map shows the place of publication/creation (when known) for each item in the Archival Research Database. </p>
 	<div id="mapid" style="width: 100%; height: 300px"></div> <!-- end mapid -->
 		<script>
 			var tpnha_map = L.map('mapid').setView([35.0, -45.0], 2);
@@ -76,13 +71,34 @@
 
 		</script>
 
+<a name="about"></a>
 </section>
 
-<a name="about"></a>
 <section>
 	<h1>About</h1>
 	<p>With generous funding from the Gardiner Foundation, The ITPS has begun a multi-year project to create a Digital Archive from the physical TPNHA Collection. The Archival Research Database contains the foundational metadata for the future Digital Archive and provides Iona College students, faculty, and staff a way to create and enhance inventory records while also answering recombinatorial research queries.</p>
+	<p>The ITPS is working closely with the Ryan Library, especially Natalka Sawchuck, Assistant Director of Libraries and ITPS Affliate Librarian, without whom this project would not exist. Additional cataloging in OCLC has been performed by Diana Kiel, Coordinator of Technical Services. </p>
 	<p>The Archival Research Database has been built in Django and PostgreSQL, with d3js and leafletjs used to create visualizations based on live data. To see the code, visit <a href="https://github.com/jabauer/itps-research-db">the github repository</a>; the code running in production can be found on the master branch. All code has been released under GPLv3. For questions regarding the software, please contact Dr. Jean Bauer of <a href="http://lemoneggsdata.com">Lemon & Eggs Data Design, LLC</a></p>
+
+<a name="credit"></a>
+</section>
+
+<section>
+	<h1>Credit</h1>
+	<p>ITPS Fellow and Ryan Library staff have been working on the inventory data underlying the Archival Research Database for years. See the table below for how many item records have been created, enhanced, or reviewed by each team member.</p>
+	<table id="credit-table">
+		<th></th>
+		{% for task in tasks %}
+		<th>{{ task.1 }}</th>
+		{% endfor %}
+		{% for user in users %}
+			<tr>
+			{% for value in user %}
+				<td> {{ value }} </td>
+			{% endfor %}
+			</tr>
+		{% endfor %}
+	</table>
 </section>
 
 

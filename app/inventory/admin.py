@@ -62,6 +62,10 @@ class ItemAdmin(admin.ModelAdmin):
             'description': 'Short Title is limited to 50 characters.'
         }),
         (None, {
+            'fields': ('oclc_permalink',),
+            'description': 'URL for the permanent link (aka permalink) to OCLC catalog record.'
+        }),
+        (None, {
             'fields': ('pub_date', 'pub_date_certainty'),
             'description': 'All dates are recorded in the YYYY-MM-DD format. Each date is a range.</br>The first entry is for the first possible calendar day. The second entry is for the last possible calaendar day PLUS ONE.</br><b>Examples: Enter 1800 as 1800-01-01 & 1801-01-01. Enter July 1794 as 1794-07-01 & 1794-08-01. Enter October 30, 1735 as 1735-10-30 & 1735-10-31.</b>'
         }),
@@ -69,12 +73,20 @@ class ItemAdmin(admin.ModelAdmin):
             'fields': ('pub_places', 'edition', 'volume', 'number')
         }),
         (None, {
-            'fields': ('other_description', 'original_source', 'notes'),
+            'fields': ('other_description', 'notes'),
             'description': 'Other Description is where you describe the content of the item. The notes field is for anything related to the record that does not fit in one of the fields above.'
         }),
+        (None, {
+            'fields': ('original_source',),
+            'description': 'This names the earlier inventory (if any) that the record came from.'
+        }),
         ('Physical Object', {
-            'classes': ('collapse',),
-            'fields': ('tgm_genre', 'size', 'physical_description', 'condition_notes', 'digitization_recommendation', 'iona_holdings')
+            # 'classes': ('collapse',),
+            'fields': ('tgm_genre', 'size', 'physical_description', 'condition_notes', 'digitization_recommendation')
+        }),
+        (None, {
+            'fields': ('iona_holdings',),
+            'description': 'Is this the record of an original object or a reproduction/copy? Only use "original and copy" if the record refers to 2+ objects, an original and (at least one) copy. If a document was copied by hand, mark it as an original.'
         })
     )
     # leaving off physical descriptions for now, since all work is being done online and offsite

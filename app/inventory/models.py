@@ -93,6 +93,7 @@ class Item(models.Model):
     record_status = models.CharField(max_length=20, choices=RECORD_STATUS_CHOICES)
     iona_holdings = models.CharField(max_length=20, choices=IONA_HOLDINGS_CHOICES, blank=True, null=True)
     pub_places = models.ManyToManyField(Location, blank=True)
+    oclc_permalink = models.URLField(max_length=200, blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
 
     def __str__(self):

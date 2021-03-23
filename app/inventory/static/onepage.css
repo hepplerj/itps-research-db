@@ -34,16 +34,15 @@ html {
 body {
     font-family:Arial, sans-serif;
     color: var(--dark-gray);
-    font-size: 1.1em;
-    line-height: 1.4em;
+    font-size: 1.2em;
+    line-height: 1.7em;
     width: 66%;
     margin: 0 auto;
 }
 
 a {
     color: var(--maroon);
-    font-weight: bold;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -59,13 +58,23 @@ nav {
     left:0;
     margin-right: auto;
     margin-left: auto;
+    padding-top: 10px;
     z-index: 2000;
     text-align: center;
     font-family: Colus;
 }
 
+img.logo {
+    float: left;
+
+}
+
+nav ul {
+    float: right;
+}
+
 nav ul li {
-    display: inline;
+    display: inline-block;
     padding: 1em 1.1em;
 }
 
@@ -86,31 +95,6 @@ nav a:hover {
 nav a:before {
     content = '' !important;
 }
-
-#name_img {
-    position: relative;
-    float: left;
-    width: 40%;
-    background-color: rgba(31,74,120,.8);
-    padding: 10px 20px;
-    margin-top: 4em;
-}
-
-#array_img {
-    position: relative;
-    float: right;
-    margin-top: -1em;
-    width: 70%;
-    padding: 10px 20px;
-    background-color: rgba(105,46,97,.85);
-}
-
-/* This allows for the images to float below the nav even when the screen is very small*/
-@media (max-width: 760px) { 
-    #name_img {
-        margin-top: 6em;
-   
-} }
 
 /*  This is for the main chunks of text */
 
@@ -158,18 +142,34 @@ h2 {
     clear: both;
 }
 
-.treemap .node {
-    font-size: 100%;
-    line-height: 150%;
-    overflow: hidden;
-    position: absolute;
-    text-indent: 5%;
-    color: #FFF;
+
+#credit-table {
+    table-layout: auto;
+    width: 66%;
+    /*margin: auto;*/
+}
+
+#credit-table th {
+    font-family: Colus;
+    font-size: .8em;
+    color: var(--maroon);
+}
+
+#credit-table td,
+#credit-table th
+{
+    text-align:left;
+}
+
+#credit-table td + td,
+#credit-table th + th
+{
+    text-align:right;
 }
 
 
-@media (max-width: 600px) {
-    .card {
+@media screen and  (max-width: 600px) {
+    .card #credit-table {
         width: 100%;
     }
 }
