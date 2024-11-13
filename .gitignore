@@ -23,4 +23,6 @@ users-dev.json
 users-prod.json
 
 #Reminder of where to find docker instructions
-dockerizing.txt
+DEVNOTES.md
+data/*
+!data/.gitkeep
