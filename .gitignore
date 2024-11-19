@@ -14,6 +14,7 @@ __pycache__/
 # Early fixtures for first data load.
 app/*/fixtures/initial*.json
 app/*/fixtures/*.txt
+app/fixtures/users.json
 
 # Django staticfiles directory, created by manage.py collectstatic
 app/staticfiles
