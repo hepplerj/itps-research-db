@@ -1,57 +1,67 @@
-/**
- * This is a minimal config.
- *
- * If you need the full config, get it from here:
- * https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
- */
-
+// app/theme/static_src/tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    /**
-     * HTML. Paths to Django template files that will contain Tailwind CSS classes.
-     */
-
-    /*  Templates within theme app (<tailwind_app_name>/templates), e.g. base.html. */
-    "../templates/**/*.html",
-
-    /*
-     * Main templates directory of the project (BASE_DIR/templates).
-     * Adjust the following line to match your project structure.
-     */
+    // Adjust these paths according to your project structure
     "../../templates/**/*.html",
-
-    /*
-     * Templates in other django apps (BASE_DIR/<any_app_name>/templates).
-     * Adjust the following line to match your project structure.
-     */
     "../../**/templates/**/*.html",
-
-    /**
-     * JS: If you use Tailwind CSS in JavaScript, uncomment the following lines and make sure
-     * patterns match your project structure.
-     */
-    /* JS 1: Ignore any JavaScript in node_modules folder. */
-    // '!../../**/node_modules',
-    /* JS 2: Process all JavaScript files in the project. */
-    // '../../**/*.js',
-
-    /**
-     * Python: If you use Tailwind CSS classes in Python, uncomment the following line
-     * and make sure the pattern below matches your project structure.
-     */
-    // '../../**/*.py'
+    "../../**/static/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        iona: {
+          white: "#fff",
+          maroon: "#6f2c3e",
+          gold: "#f0ab00",
+          "light-gray": "#e0e1dd",
+          "medium-gray": "#adafaf",
+          "dark-gray": "#565a5c",
+          "deep-blue": "#0046ad",
+          "sea-blue": "#63b1e5",
+          "aqua-green": "#76d2b6",
+        },
+      },
+      fontFamily: {
+        sans: [
+          '"Work Sans"',
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Ubuntu",
+          "sans-serif",
+        ],
+        serif: [
+          '"PT Serif"',
+          "ui-serif",
+          "Georgia",
+          "Cambria",
+          "Times New Roman",
+          "Times",
+          "serif",
+        ],
+        mono: [
+          "ui-monospace",
+          "SFMono-Regular",
+          "Consolas",
+          "Monaco",
+          "monospace",
+        ],
+      },
+      spacing: {
+        container: "clamp(16rem, 66vw, 75rem)",
+        section: "clamp(2rem, 5vw, 4rem)",
+        xs: "clamp(0.75rem, 1vw, 1rem)",
+        sm: "clamp(1rem, 2vw, 1.5rem)",
+        md: "clamp(1.5rem, 3vw, 2rem)",
+        lg: "clamp(2rem, 4vw, 3rem)",
+      },
+      fontSize: {
+        body: "clamp(1rem, 1.2vw, 1.2rem)",
+      },
+    },
   },
-  plugins: [
-    /**
-     * '@tailwindcss/forms' is the forms plugin that provides a minimal styling
-     * for forms. If you don't like it or have own styling for forms,
-     * comment the line below to disable '@tailwindcss/forms'.
-     */
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/aspect-ratio"),
-  ],
+  plugins: [],
 };

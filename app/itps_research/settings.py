@@ -78,6 +78,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "itps_research.urls"
 TAILWIND_APP_NAME = "theme"
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 TEMPLATES = [
     {
@@ -154,6 +157,10 @@ FIXTURE_DIRS = [os.path.join(BASE_DIR, "fixtures")]
 
 STATIC_URL = "/staticfiles/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
