@@ -31,11 +31,11 @@ $(function () {
         "Estimated Remaining",
       ])
       .range([
-        "var(--maroon)",
-        "var(--gold)",
-        "var(--sea-blue)",
-        "var(--aqua-green)",
-        "var(--medium-gray)",
+        "#6f2c3e", // iona-maroon
+        "#f0ab00", // iona-gold
+        "#63b1e5", // iona-sea-blue
+        "#76d2b6", // iona-aqua-green
+        "#adafaf", // iona-medium-gray
       ]);
 
     //remove all leaves that have value less than 1 (aka statuses not currently in use)
