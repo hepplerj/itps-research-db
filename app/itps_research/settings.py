@@ -48,6 +48,11 @@ CSRF_TRUSTED_ORIGINS = env.list(
 
 # Application definition
 INSTALLED_APPS = [
+    "django_tables2",
+    "django_filters",
+    "django_bootstrap5",
+    "tailwind",
+    "theme",
     "inventory.apps.InventoryConfig",
     "organizations.apps.OrganizationsConfig",
     "people.apps.PeopleConfig",
@@ -72,6 +77,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "itps_research.urls"
+TAILWIND_APP_NAME = "theme"
 
 TEMPLATES = [
     {
@@ -84,13 +90,14 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.request",
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = "itps_research.wsgi.application"
-
+DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap5.html"
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

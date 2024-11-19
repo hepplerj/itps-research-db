@@ -1,15 +1,15 @@
-from django.shortcuts import render
+from django.contrib.auth.models import User
 from django.core.serializers import serialize
 from django.http import HttpResponse, JsonResponse
-
-
-from inventory.models import Item, Credit
+from django.shortcuts import render
+from django.views.generic import DetailView
+from django_filters.views import FilterView
+from django_tables2 import SingleTableMixin
+from inventory.models import Credit, Item
+from inventory.tables import ItemFilter, ItemTable
 from organizations.models import Organization
 from people.models import Person
 from places.models import Location, State
-from django.contrib.auth.models import User
-
-# Views for the Inventory Module, includes site homepage
 
 
 def index(request):
@@ -23,12 +23,14 @@ def index(request):
 
     # Get users and the number of records they have worked on
     users = []
-    tasks = Credit._meta.get_field('task').choices
+    tasks = Credit._meta.get_field("task").choices
     for user in User.objects.all():
         ucredit = Credit.objects.filter(user=user)
         # Only include users who have done data work (aka have at least 1 credit record)
         if ucredit.count() > 0:
-            credit = [user.first_name + " " + user.last_name, ]
+            credit = [
+                user.first_name + " " + user.last_name,
+            ]
             # Get credit counts for each type of task
             for task in tasks:
                 credit.append(ucredit.filter(task=task[0]).count())
@@ -36,15 +38,15 @@ def index(request):
 
     # mini dictionary to pass counts in the template
     by_the_nums = {
-        'num_items': num_items,
-        'num_people': num_people,
-        'num_orgs': num_orgs,
-        'num_places': num_places,
-        'users': users,
-        'tasks': tasks,
+        "num_items": num_items,
+        "num_people": num_people,
+        "num_orgs": num_orgs,
+        "num_places": num_places,
+        "users": users,
+        "tasks": tasks,
     }
 
-    return render(request, 'index.html', context=by_the_nums)
+    return render(request, "index.html", context=by_the_nums)
 
 
 def make_items_by_status_json(request):
@@ -55,47 +57,52 @@ def make_items_by_status_json(request):
     all_items = {
         "name": "Probable Items",
         "children": [
-            {
-                "name": "Cataloged",
-                "children": []
-            },
-            {
-                "name": "Estimated Remaining",
-                "value": est_remaining
-            }
-        ]
+            {"name": "Cataloged", "children": []},
+            {"name": "Estimated Remaining", "value": est_remaining},
+        ],
     }
 
     items_by_status = []
-    for choice in Item._meta.get_field('record_status').choices:
+    for choice in Item._meta.get_field("record_status").choices:
         num_status = {
             "name": choice[1],
-            "value": Item.objects.filter(record_status=choice[0]).count()
+            "value": Item.objects.filter(record_status=choice[0]).count(),
         }
         items_by_status.append(num_status)
-    all_items['children'][0]['children'] = items_by_status
+    all_items["children"][0]["children"] = items_by_status
 
     return JsonResponse(all_items)
 
 
-# def make_credits_by_user_json(request):
-#     """Small json file with data showing which users have worked on which records"""
+class ItemListView(SingleTableMixin, FilterView):
+    model = Item
+    table_class = ItemTable
+    template_name = "inventory/item_list.html"
+    filterset_class = ItemFilter
+    table_pagination = {"per_page": 25}
 
-#     user_credits = []
-#     for user in User.objects.all():
-#         if Credit.objects.filter(user=user).count() > 0:
-#             user_credit = {
-#                 "name": user.first_name + " " + user.last_name,
-#                 "item records": []
-#             }
-#             records = []
-#             for choice in Credit._meta.get_field('task').choices:
-#                 credits = {
-#                     "task": choice[1],
-#                     "value": Credit.objects.filter(user=user).filter(task=choice[0]).count()
-#                 }
-#                 records.append(credits)
-#             user_credit['records'] = records
-#             user_credits.append(user_credit)
 
-#     return JsonResponse(user_credits, safe=False)
+class ItemDetailView(DetailView):
+    model = Item
+    template_name = "inventory/item_detail.html"
+
+    def get(self, request, *args, **kwargs):
+        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+            item = self.get_object()
+            data = {
+                "accession_number": item.accession_number,
+                "title": item.title,
+                "pub_date": str(item.pub_date),
+                "tgm_genre": str(item.tgm_genre),
+                "physical_description": item.physical_description,
+                "condition_notes": item.condition_notes,
+                "pub_places": [str(place) for place in item.pub_places.all()],
+                "creators": [
+                    f"{ic.person or ic.organization} ({ic.role})"
+                    for ic in item.item_creator_set.all()
+                ],
+                "original_source": str(item.original_source),
+                "record_status": item.record_status,
+            }
+            return JsonResponse(data)
+        return super().get(request, *args, **kwargs)
