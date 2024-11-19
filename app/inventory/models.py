@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.postgres.fields import DateRangeField
 from django.db import models
+from django.urls import reverse
 
 # Pull in central model from each of the following apps
 from organizations.models import Organization
@@ -159,6 +160,9 @@ class Item_Creator(models.Model):
             self.person,
             self.organization,
         )
+
+    def get_absolute_url(self):
+        return reverse("inventory:item_detail", args=[str(self.id)])
 
     class Meta:
         verbose_name = "Creator"
