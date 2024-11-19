@@ -40,33 +40,34 @@ class Location(models.Model):
     regions = models.ManyToManyField(Region, blank=True)
     notes = models.TextField(blank=True, null=True)
 
-    def save(self, *args, **kwargs):
-        if not self.latitude or not self.longitude or not self.state:
-            processor = LocationProcessor()
-            city, state_name = processor.parse_location_string(self.name)
+    def save(self, *args, skip_geocoding=False, **kwargs):
+        if not skip_geocoding and (
+            not self.latitude or not self.longitude or not self.state
+        ):
+            try:
+                processor = LocationProcessor()
+                city, state_name = processor.parse_location_string(self.name)
 
-            # If we have a state name, standardize it
-            if state_name:
-                state_name = processor.standardize_state_name(state_name)
+                if state_name:
+                    state_name = processor.standardize_state_name(state_name)
 
-            # Get location details
-            details = processor.get_location_details(city, state_name)
+                details = processor.get_location_details(city, state_name)
 
-            if details:
-                self.latitude = details["latitude"]
-                self.longitude = details["longitude"]
-                self.geoname = details["geoname_url"]
+                if details:
+                    self.latitude = details["latitude"]
+                    self.longitude = details["longitude"]
+                    self.geoname = details["geoname_url"]
 
-                # Create or get State if we have state information
-                if details["state"]:
-                    state_name = processor.standardize_state_name(details["state"])
-                    state, _ = State.objects.get_or_create(
-                        name=state_name,
-                        defaults={
-                            "continent": "North America"
-                        },  # Default for US states
-                    )
-                    self.state = state
+                    if details["state"]:
+                        state_name = processor.standardize_state_name(details["state"])
+                        state, _ = State.objects.get_or_create(
+                            name=state_name, defaults={"continent": "North America"}
+                        )
+                        self.state = state
+            except Exception as e:
+                print(f"Geocoding failed for {self.name}: {str(e)}")
+                # Continue without geocoding
+                pass
 
         super().save(*args, **kwargs)
 
