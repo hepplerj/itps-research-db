@@ -1,0 +1,56 @@
+{% load django_tables2 %}
+{% load i18n %}
+
+{% block table %}
+    <div class="table-container">
+        <table {% if table.attrs %}{{ table.attrs.as_html }}{% endif %}>
+            {% block table.thead %}
+                <thead>
+                    <tr>
+                        {% for column in table.columns %}
+                            <th {{ column.attrs.th.as_html }}>
+                                {% if column.orderable %}
+                                    <a href="{% querystring table.prefixed_order_by_field=column.order_by_alias.next %}">{{ column.header }}</a>
+                                {% else %}
+                                    {{ column.header }}
+                                {% endif %}
+                            </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+            {% endblock table.thead %}
+
+            {% block table.tbody %}
+                <tbody>
+                    {% for row in table.page.object_list|default:table.rows %}
+                        <tr {{ row.attrs.as_html }}>
+                            {% for column, cell in row.items %}
+                                <td {{ column.attrs.td.as_html }}>{{ cell }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% empty %}
+                        {% if table.empty_text %}
+                            <tr><td colspan="{{ table.columns|length }}">{{ table.empty_text }}</td></tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            {% endblock table.tbody %}
+        </table>
+    </div>
+
+    {% if table.page and table.paginator.num_pages > 1 %}
+        <div class="pagination">
+            {% if table.page.has_previous %}
+                <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}" class="pagination-previous">&larr;</a>
+            {% endif %}
+
+            <span class="pagination-info">
+                Page {{ table.page.number }} of {{ table.paginator.num_pages }}
+            </span>
+
+            {% if table.page.has_next %}
+                <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}" class="pagination-next">&rarr;</a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock table %}
