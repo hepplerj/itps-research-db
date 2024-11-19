@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="item-detail">
+        <header class="item-header">
+            <h1>{{ object.accession_number }}</h1>
+            <div class="item-status">Status: {{ object.get_record_status_display }}</div>
+        </header>
+
+        <div class="item-content">
+            <section class="item-main">
+                <h2>{{ object.title }}</h2>
+
+                <div class="item-metadata">
+                    <div class="metadata-group">
+                        <h3>Publication Details</h3>
+                        <dl>
+                            <dt>Date</dt>
+                            <dd>{{ object.pub_date|default:"Unknown" }}</dd>
+
+                            <dt>Genre</dt>
+                            <dd>{{ object.tgm_genre|default:"Not specified" }}</dd>
+
+                            <dt>Places of Publication</dt>
+                            <dd>
+                                {% for place in object.pub_places.all %}
+                                    {{ place }}{% if not forloop.last %}, {% endif %}
+                                {% empty %}
+                                    Not specified
+                                {% endfor %}
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="metadata-group">
+                        <h3>Physical Details</h3>
+                        <dl>
+                            <dt>Size</dt>
+                            <dd>{{ object.size|default:"Not specified" }}</dd>
+
+                            <dt>Physical Description</dt>
+                            <dd>{{ object.physical_description|default:"Not specified" }}</dd>
+
+                            <dt>Condition Notes</dt>
+                            <dd>{{ object.condition_notes|default:"Not specified" }}</dd>
+                        </dl>
+                    </div>
+
+                    <div class="metadata-group">
+                        <h3>Creators</h3>
+                        <ul class="creators-list">
+                            {% for creator in object.item_creator_set.all %}
+                                <li>
+                                    {{ creator.person|default:creator.organization }}
+                                    ({{ creator.role }})
+                                    {% if creator.pseudonym %}
+                                        - Pseudonym: {{ creator.pseudonym }}
+                                    {% endif %}
+                                </li>
+                            {% empty %}
+                                <li>No creators listed</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    {% if object.notes %}
+                        <div class="metadata-group">
+                            <h3>Additional Notes</h3>
+                            <p>{{ object.notes }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </section>
+
+            <aside class="item-sidebar">
+                <div class="metadata-group">
+                    <h3>Collection Details</h3>
+                    <dl>
+                        <dt>Original Source</dt>
+                        <dd>{{ object.original_source|default:"Not specified" }}</dd>
+
+                        <dt>Holdings</dt>
+                        <dd>{{ object.get_iona_holdings_display|default:"Not specified" }}</dd>
+
+                        <dt>Digitization</dt>
+                        <dd>{{ object.digitization_recommendation|default:"Not specified" }}</dd>
+                    </dl>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="{% url 'admin:inventory_item_change' object.pk %}" class="edit-button">Edit in Admin</a>
+                    <a href="{% url 'inventory:item_list' %}" class="back-button">Back to List</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+{% endblock %}
