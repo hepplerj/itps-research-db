@@ -1,39 +1,42 @@
-<!-- 
-    This is the base template. 
-	It contains the header, footer, and nav. 
-	All other templates extend this one.
--->
-
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>{% block title%}The ITPS Archival Research Database{% endblock %}</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="{% static 'onepage.css' %}"/>
-	{% block scripts %}{% endblock %}
+    <head>
+        <title>{% block title%}The ITPS Archival Research Database{% endblock %}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'onepage.css' %}"/>
+        {% block scripts %}{% endblock scripts %}
 
-</head>
-<body>
-	<header class="header">
-		<a class="logo" href="/"><img src="{% static '/images/ITPS-LogoGreyGold.png' %}"></a>
-		<nav>
-			<input type="checkbox" class="menu-btn" id="menu-btn">
-			<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-			<ul class="menu">
-				<li><a href="#dashboard">Dashboard</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#credit">Credit</a></li>
-				<li><a href="{% url 'admin:index' %}">Login</a></li>
-		</nav>
-	</header>
-	<main>
-		{% block content %}{% endblock %}
-	</main>
-	<footer>
-		<p>Site and Database Designed by <em><a href="http://lemoneggsdata.com" target="_blank">Lemon & Eggs Data Design</a></em> using <a href="https://www.djangoproject.com/" target="_blank">Django</a> and <a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a>.</p>
-		<p>Copyright Iona College 2021</p>
-	</footer>
-</body>
-</html>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        {% block extrahead %}{% endblock extrahead %}
+
+    </head>
+    <body>
+        <header class="header">
+            <a class="logo" href="/"><img src="{% static '/images/ITPS-LogoGreyGold.png' %}"></a>
+            <nav>
+                <input type="checkbox" class="menu-btn" id="menu-btn">
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#credit">Credit</a></li>
+                    <li><a href="{% url 'admin:index' %}">Login</a></li>
+                </nav>
+            </header>
+            <main>
+                {% block content %}{% endblock %}
+            </main>
+            <footer>
+                <p>Site, database, and design updated in 2024 by <a href="https://jasonheppler.org">Jason Heppler</a>. Original site and database designed by <em><a href="http://lemoneggsdata.com" target="_blank">Lemon & Eggs Data Design</a></em>.</p>
+                <p>Copyright Iona College 2021—{% now "Y" %}</p>
+            </footer>
+
+            {% block extra_js %}{% endblock extra_js %}
+        </body>
+    </html>
