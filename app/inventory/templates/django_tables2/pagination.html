@@ -1,12 +1,11 @@
-{# templates/django_tables2/pagination.html #}
 {% load django_tables2 %}
-
 {% if table.page and table.paginator.num_pages > 1 %}
-    <nav class="pagination-nav" aria-label="Table navigation">
-        <ul class="pagination-list">
+    <nav class="flex items-center justify-center mt-8" aria-label="Table navigation">
+        <ul class="flex space-x-2">
             {% if table.page.has_previous %}
-                <li class="pagination-item">
-                    <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}" class="pagination-link">
+                <li>
+                    <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}"
+                       class="px-3 py-2 bg-white text-iona-maroon border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
                         Previous
                     </a>
                 </li>
@@ -14,27 +13,34 @@
 
             {% for p in table.paginator.page_range %}
                 {% if p == table.page.number %}
-                    <li class="pagination-item current">
-                        <span class="pagination-link">{{ p }}</span>
+                    <li>
+                        <span class="px-3 py-2 bg-iona-maroon text-white border border-iona-maroon rounded-md">{{ p }}</span>
                     </li>
                 {% elif p|add:"-2" <= table.page.number and p|add:"2" >= table.page.number %}
-                    <li class="pagination-item">
-                        <a href="{% querystring table.prefixed_page_field=p %}" class="pagination-link">{{ p }}</a>
+                    <li>
+                        <a href="{% querystring table.prefixed_page_field=p %}"
+                           class="px-3 py-2 bg-white text-iona-maroon border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
+                            {{ p }}
+                        </a>
                     </li>
                 {% elif p == 1 or p == table.paginator.num_pages %}
-                    <li class="pagination-item">
-                        <a href="{% querystring table.prefixed_page_field=p %}" class="pagination-link">{{ p }}</a>
+                    <li>
+                        <a href="{% querystring table.prefixed_page_field=p %}"
+                           class="px-3 py-2 bg-white text-iona-maroon border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
+                            {{ p }}
+                        </a>
                     </li>
                 {% elif p == 2 or p == table.paginator.num_pages|add:"-1" %}
-                    <li class="pagination-item">
-                        <span class="pagination-ellipsis">…</span>
+                    <li>
+                        <span class="px-3 py-2 text-gray-500">…</span>
                     </li>
                 {% endif %}
             {% endfor %}
 
             {% if table.page.has_next %}
-                <li class="pagination-item">
-                    <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}" class="pagination-link">
+                <li>
+                    <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}"
+                       class="px-3 py-2 bg-white text-iona-maroon border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
                         Next
                     </a>
                 </li>
@@ -42,3 +48,4 @@
         </ul>
     </nav>
 {% endif %}
+
