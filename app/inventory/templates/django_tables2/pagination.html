@@ -1,44 +1,42 @@
 {% load django_tables2 %}
 {% if table.page and table.paginator.num_pages > 1 %}
     <nav class="flex items-center justify-center mt-8" aria-label="Table navigation">
-        <ul class="flex space-x-2">
+        <ul class="inline-flex items-center space-x-2">
             {% if table.page.has_previous %}
-                <li>
+                <li class="inline-block">
                     <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}"
                        class="px-3 py-2 bg-white text-iona-maroon border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
                         Previous
                     </a>
                 </li>
             {% endif %}
-
             {% for p in table.paginator.page_range %}
                 {% if p == table.page.number %}
-                    <li>
+                    <li class="inline-block">
                         <span class="px-3 py-2 bg-iona-maroon text-white border border-iona-maroon rounded-md">{{ p }}</span>
                     </li>
                 {% elif p|add:"-2" <= table.page.number and p|add:"2" >= table.page.number %}
-                    <li>
+                    <li class="inline-block">
                         <a href="{% querystring table.prefixed_page_field=p %}"
                            class="px-3 py-2 bg-white text-iona-maroon border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
                             {{ p }}
                         </a>
                     </li>
                 {% elif p == 1 or p == table.paginator.num_pages %}
-                    <li>
+                    <li class="inline-block">
                         <a href="{% querystring table.prefixed_page_field=p %}"
                            class="px-3 py-2 bg-white text-iona-maroon border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
                             {{ p }}
                         </a>
                     </li>
                 {% elif p == 2 or p == table.paginator.num_pages|add:"-1" %}
-                    <li>
+                    <li class="inline-block">
                         <span class="px-3 py-2 text-gray-500">…</span>
                     </li>
                 {% endif %}
             {% endfor %}
-
             {% if table.page.has_next %}
-                <li>
+                <li class="inline-block">
                     <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}"
                        class="px-3 py-2 bg-white text-iona-maroon border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
                         Next
