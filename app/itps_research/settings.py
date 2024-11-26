@@ -85,7 +85,10 @@ INTERNAL_IPS = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [
+            BASE_DIR / "templates",
+            BASE_DIR / "inventory" / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -100,7 +103,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "itps_research.wsgi.application"
-DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap5.html"
+# DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap5.html"
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
