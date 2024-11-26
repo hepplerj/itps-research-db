@@ -11,26 +11,59 @@
             <h1 class="text-2xl font-sans text-iona-maroon mb-8">Items Inventory</h1>
 
             <div class="bg-gray-50 rounded-lg shadow p-6 mb-8">
-                <form method="get" class="space-y-4 md:space-y-0 md:grid md:grid-cols-4 md:gap-6">
-                    {% for field in filter.form %}
-                        <div class="flex flex-col">
-                            <label for="{{ field.id_for_label }}" class="text-sm font-medium text-gray-700 mb-1">
-                                {{ field.label }}
+                <form method="get" class="space-y-6">
+                    <div class="w-full">
+                        <label for="{{ filter.form.search.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                            {{ filter.form.search.label }}
+                        </label>
+                        <div class="mt-1">
+                            {{ filter.form.search }}
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="{{ filter.form.date_start.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                                {{ filter.form.date_start.label }}
                             </label>
                             <div class="mt-1">
-                                {{ field }}
+                                {{ filter.form.date_start }}
                             </div>
                         </div>
-                    {% endfor %}
-                    <div class="flex items-end">
-                        <button type="submit" class="w-full bg-iona-maroon text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">
+                        <div>
+                            <label for="{{ filter.form.date_end.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                                {{ filter.form.date_end.label }}
+                            </label>
+                            <div class="mt-1">
+                                {{ filter.form.date_end }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {% for field in filter.form %}
+                            {% if field.name != 'search' and field.name != 'date_start' and field.name != 'date_end' %}
+                                <div>
+                                    <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                                        {{ field.label }}
+                                    </label>
+                                    <div class="mt-1">
+                                        {{ field }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="flex justify-end mt-4">
+                        <button type="submit" class="bg-iona-maroon text-white px-8 py-2 rounded-md hover:bg-opacity-90 transition-colors">
                             Apply Filters
                         </button>
                     </div>
                 </form>
             </div>
 
-            <div class="overflow-x-auto">
+            <div>
                 {% render_table table %}
             </div>
         </div>
