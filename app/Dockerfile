@@ -18,7 +18,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # install python dependencies
-COPY ./requirements.txt .
+COPY ./requirements.txt j.
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
@@ -26,8 +26,8 @@ RUN pip install --upgrade pip \
 COPY . .
 
 # Install npm dependencies
-WORKDIR /usr/src/app/theme
-RUN npm install
+#WORKDIR /usr/src/app/theme/static_src
+#RUN npm install
 
 # Back to app directory
 WORKDIR /usr/src/app
