@@ -40,7 +40,6 @@
                         <li><a href="{% url "index" %}" class="block py-5 px-5 text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Dashboard</a></li>
                         <li><a href="{% url 'inventory:item_list' %}" class="block py-5 px-5 text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Inventory</a></li>
                         <li><a href="http://theitps.org" class="block py-5 px-5 text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">ITPS Home</a></li>
-                        <li><a href="{% url 'admin:index' %}" class="block py-5 px-5 text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Login</a></li>
                     </ul>
 
                     <!-- Mobile menu (hidden by default) -->
@@ -60,25 +59,54 @@
             {% block content %}{% endblock %}
         </main>
 
-        <footer class="w-full text-center py-8 text-iona-white bg-black/80 text-sm font-sans mt-16">
+        <footer class="w-full bg-iona-maroon text-gray-300 py-6 font-sans">
+
             <div class="container mx-auto px-4">
-                <p class="mb-4">
-                    Site, database, and design updated in 2024 by
-                    <a href="https://jasonheppler.org" class="text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Jason Heppler</a>.
-                    Original site and database designed by
-                    <em><a href="http://lemoneggsdata.com" target="_blank" class="text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Lemon & Eggs Data Design</a></em>.
-                </p>
-                <p>Copyright Iona College 2021—{% now "Y" %}</p>
-            </div>
-        </footer>
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-sm">
+                        <p>&copy; Iona University 2021—{% now "Y" %} All rights reserved.</p>
+                        <p>Site, database, and design updated in 2024 by
+                            <a href="https://jasonheppler.org" class="text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Jason Heppler</a>.
+                            Original site and database designed by
+                            <em><a href="http://lemoneggsdata.com" target="_blank" class="text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Lemon & Eggs Data Design</a></em>.
 
-        <script>
+                        </div>
+
+                        <nav>
+                            <ul class="flex space-x-6">
+                                <li>
+                                    <a href="{% url 'index' %}" class="text-sm text-iona-gold hover:text-iona-aqua-green transition-colors">
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'inventory:item_list' %}" class="text-sm text-iona-gold hover:text-iona-aqua-green transition-colors">
+                                        Database
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://theitps.org" class="text-sm text-iona-gold hover:text-iona-aqua-green transition-colors">
+                                        ITPS
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'admin:index' %}" class="text-sm text-iona-gold hover:text-iona-aqua-green transition-colors">
+                                        Admin
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </footer>
+
+            <script>
             // Mobile menu toggle
-            document.getElementById('menu-btn').addEventListener('change', function() {
-                document.getElementById('mobile-menu').classList.toggle('hidden');
-            });
-        </script>
+                document.getElementById('menu-btn').addEventListener('change', function() {
+                    document.getElementById('mobile-menu').classList.toggle('hidden');
+                });
+            </script>
 
-        {% block extra_js %}{% endblock extra_js %}
-    </body>
-</html>
+            {% block extra_js %}{% endblock extra_js %}
+        </body>
+    </html>
