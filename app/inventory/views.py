@@ -81,6 +81,11 @@ class ItemListView(SingleTableMixin, FilterView):
     filterset_class = ItemFilter
     table_pagination = {"per_page": 25}
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["total_records"] = self.model.objects.count()
+        return context
+
 
 class ItemDetailView(DetailView):
     model = Item

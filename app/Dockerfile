@@ -8,24 +8,37 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# install psycopg2 dependencies
+# install system dependencies
 RUN apt-get update \
-    && apt-get install -y postgresql postgresql-contrib gcc python3-dev libpq-dev netcat-traditional \
+    && apt-get install -y postgresql postgresql-contrib gcc python3-dev libpq-dev netcat-traditional curl \
+    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm@latest \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# install dependencies
-RUN pip install --upgrade pip
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+# install python dependencies
+COPY ./requirements.txt j.
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt
+
+# copy project
+COPY . .
+
+# Install npm dependencies
+#WORKDIR /usr/src/app/theme/static_src
+#RUN npm install
+
+# Back to app directory
+WORKDIR /usr/src/app
+
+RUN SECRET_KEY=nothing python manage.py tailwind install --no-input;
+RUN SECRET_KEY=nothing python manage.py tailwind build --no-input;
+RUN SECRET_KEY=nothing python manage.py collectstatic --no-input;
 
 # copy entrypoint.sh
 COPY ./entrypoint.sh .
 RUN chmod +x /usr/src/app/entrypoint.sh
 
-# copy project
-COPY . .
-
 # run entrypoint.sh
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
-

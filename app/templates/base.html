@@ -1,41 +1,111 @@
-{% load static %}
+{% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="min-h-full bg-fixed bg-center bg-cover bg-no-repeat" style="background-image: linear-gradient(rgba(111, 44, 62, 0.75), rgba(111, 44, 62, 0.75)), url('{% static 'images/PainesWritingDesk-938x707.jpeg' %}');">
     <head>
         <title>{% block title%}The ITPS Archival Research Database{% endblock %}</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="{% static 'onepage.css' %}"/>
         {% block scripts %}{% endblock scripts %}
-
+        {% tailwind_css %}
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
-
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
         {% block extrahead %}{% endblock extrahead %}
-
     </head>
-    <body>
-        <header class="header">
-            <a class="logo" href="/"><img src="{% static '/images/ITPS-LogoGreyGold.png' %}"></a>
-            <nav>
-                <input type="checkbox" class="menu-btn" id="menu-btn">
-                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-                <ul class="menu">
-                    <li><a href="#dashboard">Dashboard</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#credit">Credit</a></li>
-                    <li><a href="{% url 'admin:index' %}">Login</a></li>
+    <body class="font-serif text-iona-dark-gray text-body leading-[1.7] w-container mx-auto">
+        <header class="fixed top-0 left-0 right-0 w-full bg-iona-maroon py-2.5 z-50 text-center font-sans">
+            <div class="container mx-auto px-4">
+                <nav class="relative flex items-center justify-between">
+                    <a href="/" class="block float-left py-2.5 px-5">
+                        <img src="{% static '/images/ITPS-LogoGreyGold.png' %}" alt="ITPS Logo" class="h-12">
+                    </a>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <input type="checkbox" class="hidden" id="menu-btn">
+                        <label for="menu-btn" class="cursor-pointer p-7 flex items-center">
+                            <span class="relative w-[18px] h-0.5 bg-iona-gold
+                                         before:content-[''] before:absolute before:w-full before:h-0.5
+                                         before:bg-iona-gold before:top-[-5px]
+                                         after:content-[''] after:absolute after:w-full after:h-0.5
+                                         after:bg-iona-gold after:top-[5px]
+                                         transition-all duration-200">
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Navigation menu -->
+                    <ul class="hidden md:flex md:items-center md:space-x-8 bg-iona-maroon m-0 p-0
+                               transition-all duration-200 ease-out">
+                        <li><a href="{% url "index" %}" class="block py-5 px-5 text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Dashboard</a></li>
+                        <li><a href="{% url 'inventory:item_list' %}" class="block py-5 px-5 text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Inventory</a></li>
+                        <li><a href="http://theitps.org" class="block py-5 px-5 text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">ITPS Home</a></li>
+                    </ul>
+
+                    <!-- Mobile menu (hidden by default) -->
+                    <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-iona-maroon md:hidden">
+                        <ul class="py-2">
+                            <li><a href="{% url "index" %}" class="block px-5 py-3 text-iona-gold hover:text-iona-aqua-green">Dashboard</a></li>
+                            <li><a href="{% url "inventory:item_list" %}" class="block px-5 py-3 text-iona-gold hover:text-iona-aqua-green">Inventory</a></li>
+                            <li><a href="http://theitps.org" class="block px-5 py-3 text-iona-gold hover:text-iona-aqua-green">ITPS Home</a></li>
+                            <li><a href="{% url 'admin:index' %}" class="block px-5 py-3 text-iona-gold hover:text-iona-aqua-green">Login</a></li>
+                        </ul>
+                    </div>
                 </nav>
-            </header>
-            <main>
-                {% block content %}{% endblock %}
-            </main>
-            <footer>
-                <p>Site, database, and design updated in 2024 by <a href="https://jasonheppler.org">Jason Heppler</a>. Original site and database designed by <em><a href="http://lemoneggsdata.com" target="_blank">Lemon & Eggs Data Design</a></em>.</p>
-                <p>Copyright Iona College 2021—{% now "Y" %}</p>
+            </div>
+        </header>
+
+        <main class="mt-24 container mx-auto px-4">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="w-full bg-iona-maroon text-gray-300 py-6 font-sans">
+
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-sm">
+                        <p>&copy; Iona University 2021—{% now "Y" %} All rights reserved.</p>
+                        <p>Site, database, and design updated in 2024 by
+                            <a href="https://jasonheppler.org" class="text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Jason Heppler</a>.
+                            Original site and database designed by
+                            <em><a href="http://lemoneggsdata.com" target="_blank" class="text-iona-gold hover:text-iona-aqua-green transition-colors duration-200">Lemon & Eggs Data Design</a></em>.
+
+                        </div>
+
+                        <nav>
+                            <ul class="flex space-x-6">
+                                <li>
+                                    <a href="{% url 'index' %}" class="text-sm text-iona-gold hover:text-iona-aqua-green transition-colors">
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'inventory:item_list' %}" class="text-sm text-iona-gold hover:text-iona-aqua-green transition-colors">
+                                        Database
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://theitps.org" class="text-sm text-iona-gold hover:text-iona-aqua-green transition-colors">
+                                        ITPS
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'admin:index' %}" class="text-sm text-iona-gold hover:text-iona-aqua-green transition-colors">
+                                        Admin
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </footer>
+
+            <script>
+            // Mobile menu toggle
+                document.getElementById('menu-btn').addEventListener('change', function() {
+                    document.getElementById('mobile-menu').classList.toggle('hidden');
+                });
+            </script>
 
             {% block extra_js %}{% endblock extra_js %}
         </body>

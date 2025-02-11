@@ -1,54 +1,101 @@
 {% extends "base.html" %}
 
+{%block extrahead %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+{% endblock extrahead %}
+
 {% block content %}
-    <div class="item-detail">
-        <header class="item-header">
-            <h1>{{ object.accession_number }}</h1>
-            <div class="item-status">Status: {{ object.get_record_status_display }}</div>
+    <div class="bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <header class="mb-8 border-b border-gray-200 pb-4">
+            <h1 class="text-2xl font-sans text-iona-maroon">{{ object.title }}</h1>
+            <div class="text-gray-600">Status: {{ object.get_record_status_display }} | Accession Number: {{ object.accession_number }}</div>
         </header>
 
-        <div class="item-content">
-            <section class="item-main">
-                <h2>{{ object.title }}</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <section class="lg:col-span-2">
+                <div class="space-y-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-iona-maroon mb-4">Publication Details</h3>
+                        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <dt class="font-medium text-gray-600"><strong>Date Range</strong></dt>
+                                <dd>
+                                    {% if object.pub_date %}
+                                        {{ object.pub_date.lower|date:"d M Y" }}
+                                        {% if object.pub_date.lower != object.pub_date.upper %}
+                                            - {{ object.pub_date.upper|date:"d M Y" }}
+                                        {% endif %}
+                                    {% else %}
+                                        Unknown
+                                    {% endif %}
+                                </dd>
+                            </div>
+                            <div>
+                                <dt class="font-medium text-gray-600"><strong>Genre</strong></dt>
+                                <dd>{{ object.tgm_genre|default:"Not specified" }}</dd>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <dt class="font-medium text-gray-600"><strong>Places of Publication</strong></dt>
+                                <dd>
+                                    {% for place in object.pub_places.all %}
+                                        {{ place }}{% if not forloop.last %}, {% endif %}
+                                    {% empty %}
+                                        Not specified
+                                    {% endfor %}
+                                </dd>
 
-                <div class="item-metadata">
-                    <div class="metadata-group">
-                        <h3>Publication Details</h3>
-                        <dl>
-                            <dt>Date</dt>
-                            <dd>{{ object.pub_date|default:"Unknown" }}</dd>
+                                {% if object.pub_places.all %}
+                                    <div class="mt-4">
+                                        <div id="itemLocationMap" class="w-full h-[300px] rounded-lg z-0"></div>
+                                    </div>
+                                    <script>
+                                        {% with first_place=object.pub_places.first %}
+                                            {% if first_place.latitude and first_place.longitude %}
+                                                const itemMap = L.map('itemLocationMap').setView([{{ first_place.latitude }}, {{ first_place.longitude }}], 8);
+                                            {% else %}
+                                                const itemMap = L.map('itemLocationMap').setView([35.0, -45.0], 7);
+                                            {% endif %}
+                                        {% endwith %}
 
-                            <dt>Genre</dt>
-                            <dd>{{ object.tgm_genre|default:"Not specified" }}</dd>
+                                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            attribution: '© OpenStreetMap contributors'
+                                        }).addTo(itemMap);
 
-                            <dt>Places of Publication</dt>
-                            <dd>
-                                {% for place in object.pub_places.all %}
-                                    {{ place }}{% if not forloop.last %}, {% endif %}
-                                {% empty %}
-                                    Not specified
-                                {% endfor %}
-                            </dd>
+                                        {% for place in object.pub_places.all %}
+                                            {% if place.latitude and place.longitude %}
+                                                L.marker([{{ place.latitude }}, {{ place.longitude }}])
+                                                    .bindPopup("{{ place.name }}")
+                                                    .addTo(itemMap);
+                                            {% endif %}
+                                        {% endfor %}
+                                    </script>
+                                {% endif %}
+                            </div>
                         </dl>
                     </div>
 
-                    <div class="metadata-group">
-                        <h3>Physical Details</h3>
-                        <dl>
-                            <dt>Size</dt>
-                            <dd>{{ object.size|default:"Not specified" }}</dd>
-
-                            <dt>Physical Description</dt>
-                            <dd>{{ object.physical_description|default:"Not specified" }}</dd>
-
-                            <dt>Condition Notes</dt>
-                            <dd>{{ object.condition_notes|default:"Not specified" }}</dd>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-iona-maroon mb-4">Physical Details</h3>
+                        <dl class="grid grid-cols-1 gap-4">
+                            <div>
+                                <dt class="font-medium text-gray-600"><strong>Size</strong></dt>
+                                <dd>{{ object.size|default:"Not specified" }}</dd>
+                            </div>
+                            <div>
+                                <dt class="font-medium text-gray-600"><strong>Physical Description</strong></dt>
+                                <dd>{{ object.physical_description|default:"Not specified" }}</dd>
+                            </div>
+                            <div>
+                                <dt class="font-medium text-gray-600"><strong>Condition Notes</strong></dt>
+                                <dd>{{ object.condition_notes|default:"Not specified" }}</dd>
+                            </div>
                         </dl>
                     </div>
 
-                    <div class="metadata-group">
-                        <h3>Creators</h3>
-                        <ul class="creators-list">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-iona-maroon mb-4">Creators</h3>
+                        <ul class="space-y-2">
                             {% for creator in object.item_creator_set.all %}
                                 <li>
                                     {{ creator.person|default:creator.organization }}
@@ -63,35 +110,62 @@
                         </ul>
                     </div>
 
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-iona-maroon mb-4">Digitization</h3>
+                        {% if object.image %}
+                            <img src="{{ object.image.url }}" alt="{{ object.image_alt}}">
+                        {% endif %}
+
+                        {% if object.oclc_permalink %}
+                            <p>OCLC permalink: <a class="underline hover:no-underline" href="{{ object.oclc_permalink}}">{{ object.oclc_permalink }}</a></p>
+                        {% endif %}
+                    </div>
+
+
                     {% if object.notes %}
-                        <div class="metadata-group">
-                            <h3>Additional Notes</h3>
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold text-iona-maroon mb-4">Additional Notes</h3>
                             <p>{{ object.notes }}</p>
                         </div>
                     {% endif %}
                 </div>
             </section>
 
-            <aside class="item-sidebar">
-                <div class="metadata-group">
-                    <h3>Collection Details</h3>
-                    <dl>
-                        <dt>Original Source</dt>
-                        <dd>{{ object.original_source|default:"Not specified" }}</dd>
+            <aside>
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-iona-maroon mb-4">Collection Details</h3>
+                    <dl class="space-y-4">
+                        <div>
+                            <dt class="font-medium text-gray-600"><strong>Original Source</strong></dt>
+                            <dd>{{ object.original_source|default:"Not specified" }}</dd>
+                        </div>
+                        <div>
+                            <dt class="font-medium text-gray-600"><strong>Holdings</strong></dt>
+                            <dd>{{ object.get_iona_holdings_display|default:"Not specified" }}</dd>
+                        </div>
+                        <div>
+                            <dt class="font-medium text-gray-600"><strong>Digitization</strong></dt>
+                            <dd>{{ object.digitization_recommendation|default:"Not specified" }}</dd>
+                        </div>
 
-                        <dt>Holdings</dt>
-                        <dd>{{ object.get_iona_holdings_display|default:"Not specified" }}</dd>
-
-                        <dt>Digitization</dt>
-                        <dd>{{ object.digitization_recommendation|default:"Not specified" }}</dd>
                     </dl>
                 </div>
 
-                <div class="action-buttons">
-                    <a href="{% url 'admin:inventory_item_change' object.pk %}" class="edit-button">Edit in Admin</a>
-                    <a href="{% url 'inventory:item_list' %}" class="back-button">Back to List</a>
+                <div class="space-y-3">
+                    <a href="{% url 'inventory:item_list' %}"
+                       class="block w-full bg-white text-iona-maroon text-center px-4 py-2 rounded-md border border-iona-maroon hover:bg-gray-50 transition-colors">
+                        Back to Inventory
+                    </a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'admin:inventory_item_change' object.pk %}"
+                           class="block w-full bg-iona-maroon text-white text-center px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors">
+                            Edit in Admin
+                        </a>
+                    {% endif %}
+
                 </div>
             </aside>
         </div>
     </div>
 {% endblock %}
+

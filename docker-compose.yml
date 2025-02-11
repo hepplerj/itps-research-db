@@ -1,5 +1,4 @@
 version: "3.8"
-
 services:
   web:
     build: ./app
@@ -7,6 +6,7 @@ services:
     volumes:
       - ./app/:/usr/src/app/
       - ./data/:/usr/src/app/data/
+      - /usr/src/app/node_modules
     ports:
       - 8000:8000
     env_file:
@@ -21,6 +21,5 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=itps_research
-
 volumes:
   postgres_data:

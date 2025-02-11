@@ -5,6 +5,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+app/.env
 .env.dev
 .env.prod
 .env.prod-db

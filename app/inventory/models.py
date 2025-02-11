@@ -111,6 +111,13 @@ class Item(models.Model):
     )
     pub_places = models.ManyToManyField(Location, blank=True)
     oclc_permalink = models.URLField(max_length=200, blank=True, null=True)
+    image = models.ImageField(
+        upload_to="/images",
+        blank=True,
+        null=True,
+        help_text="Optional. Upload an image of the item.",
+    )
+    image_alt_text = models.CharField(max_length=500, blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
 
     publisher = models.CharField(max_length=200, blank=True, null=True)

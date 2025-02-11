@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block scripts %}
-
     <script src="https://d3js.org/d3.v4.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -12,93 +11,93 @@
             crossorigin=""></script>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
-{% endblock %} <!-- scripts -->
+{% endblock %}
 
 {% block content %}
-
-    <section>
-        <h1>The ITPS Archival Research Database</h1>
-        <p>The ITPS Archival Research Database holds, expands, and analyzes the inventory of the Thomas Paine National Historical Association Collection housed in the Ryan Library at Iona College in New Rochelle, New York.</p>
-        <p>The Archival Research Database is currently locked to ITPS and Ryan Library staff. For more information on the TPHNA Collection, including whom to contact with questions regarding the physical archive, visit <a href="http://theitps.org/archives/tpnha/" target="_blank">the TPNHA Collection page on the ITPS Research Portal</a>.</p>
-
-        <a name="dashboard"></a>
+    <section class="bg-white p-12 mb-12">
+        <h1 class="text-iona-maroon text-2xl font-sans">The ITPS Archival Research Database</h1>
+        <p class="mb-4">The ITPS Archival Research Database holds, expands, and analyzes the inventory of the Thomas Paine National Historical Association Collection housed in the Ryan Library at Iona University in New Rochelle, New York.</p>
+        <p class="mb-4">The Archival Research Database is currently locked to ITPS and Ryan Library staff. For more information on the TPHNA Collection, including whom to contact with questions regarding the physical archive, visit <a href="http://theitps.org/archives/tpnha/" target="_blank" class="text-iona-maroon hover:text-iona-aqua-green">the TPNHA Collection page on the ITPS Research Portal</a>.</p>
     </section>
 
-    <section>
-        <h1>TPNHA Inventory Dashboard</h1>
-        <p>We intend to have the TPNHA Collection's inventory finalized by Summer 2022. We estimate that there are approximately one thousand items in the collection, as recieved by Iona College. In the meantime, you can follow our progress in real time. We will only provide item specific details for item records that have completed our rigorous review process.</p>
-        <p>As of <em>right now</em>, the ITPS Archival Research Database contains records for:</p>
-        <div class="row">
-            <div class="card">
-                <p class="number">{{ num_items }}</p>
-                <p class="type">Items</p>
+    <section class="bg-white p-12 mb-12" id="dashboard">
+        <h1 class="text-iona-maroon text-2xl font-sans">TPNHA Inventory Dashboard</h1>
+        <p class="mb-4">We intend to have the TPNHA Collection's inventory finalized by Summer 2022. We estimate that there are approximately one thousand items in the collection, as recieved by Iona University. In the meantime, you can follow our progress in real time. We will only provide item specific details for item records that have completed our rigorous review process.</p>
+        <p class="mb-8">As of <em>right now</em>, the ITPS Archival Research Database contains records for:</p>
+
+        <div class="flex flex-wrap justify-between mb-8">
+            <div class="text-iona-maroon font-sans text-center w-full sm:w-1/2 md:w-1/4 mb-4">
+                <p class="text-4xl mb-0">{{ num_items }}</p>
+                <p class="text-lg">Items</p>
             </div>
-            <div class="card">
-                <p class="number">{{ num_people }}</p>
-                <p class="type">People</p>
+            <div class="text-iona-maroon font-sans text-center w-full sm:w-1/2 md:w-1/4 mb-4">
+                <p class="text-4xl mb-0">{{ num_people }}</p>
+                <p class="text-lg">People</p>
             </div>
-            <div class="card">
-                <p class="number">{{ num_orgs }}</p>
-                <p class="type">Organizations</p>
+            <div class="text-iona-maroon font-sans text-center w-full sm:w-1/2 md:w-1/4 mb-4">
+                <p class="text-4xl mb-0">{{ num_orgs }}</p>
+                <p class="text-lg">Organizations</p>
             </div>
-            <div class="card">
-                <p class="number">{{ num_places }}</p>
-                <p class="type">Places</p>
+            <div class="text-iona-maroon font-sans text-center w-full sm:w-1/2 md:w-1/4 mb-4">
+                <p class="text-4xl mb-0">{{ num_places }}</p>
+                <p class="text-lg">Places</p>
             </div>
-        </div> <!-- end row -->
-        <p>All item records are marked according to their cataloging status as complete, incomplete, review, or reviewed. Here is a breakdown of the <span style="color:var(--maroon);">{{num_items}}</span> records by current status.</p>
-        <div id="status-treemap"></div>
+        </div>
+
+        <p class="mb-4">All item records are marked according to their cataloging status as complete, incomplete, review, or reviewed. Here is a breakdown of the <span class="text-iona-maroon">{{num_items}}</span> records by current status.</p>
+        <div id="status-treemap" class="mb-8"></div>
         <script src="{% static 'javascript/static-treemap.js' %}"></script>
 
-        <p>This map shows the place of publication/creation (when known) for each item in the Archival Research Database. </p>
-        <div id="mapid" style="width: 100%; height: 300px"></div> <!-- end mapid -->
+        <p class="mb-4">This map shows the place of publication/creation (when known) for each item in the Archival Research Database.</p>
+        <div id="mapid" class="w-full h-[300px] mb-8 z-0"></div>
         <script>
             const tpnha_map = L.map('mapid').setView([35.0, -45.0], 2);
-
             const defaultLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             });
             tpnha_map.addLayer(defaultLayer);
-
             const geojson = new L.GeoJSON.AJAX("data/locations.geojson");
             geojson.on('data:loaded', () => {
                 geojson.addTo(tpnha_map);
             });
         </script>
-
-        <a name="about"></a>
     </section>
 
-    <section>
-        <h1>About</h1>
-        <p>With generous funding from the Gardiner Foundation, The ITPS has begun a multi-year project to create a Digital Archive from the physical TPNHA Collection. The Archival Research Database contains the foundational metadata for the future Digital Archive and provides Iona College students, faculty, and staff a way to create and enhance inventory records while also answering recombinatorial research queries.</p>
-        <p>The ITPS is working closely with the Ryan Library, especially Natalka Sawchuck, Assistant Director of Libraries and ITPS Affliate Librarian, without whom this project would not exist. Additional cataloging in OCLC has been performed by Diana Kiel, Coordinator of Technical Services. </p>
-
-        <a name="credit"></a>
+    <section class="bg-white p-12 mb-12" id="about">
+        <h1 class="text-iona-maroon text-2xl font-sans">About</h1>
+        <p class="mb-4">With generous funding from the Gardiner Foundation and the Lapidus Initiative for Early American Inquiry, the ITPS has begun a multi-year project to create a Digital Archive from the physical TPNHA Collection. The Archival Research Database contains the foundational metadata for the future Digital Archive and provides Iona University students, faculty, and staff a way to create and enhance inventory records while also answering recombinatorial research queries.</p>
+        <p class="mb-4">The ITPS is working closely with the Ryan Library, especially Natalka Sawchuck, Assistant Director of Libraries and ITPS Affliate Librarian, without whom this project would not exist. Additional cataloging in OCLC has been performed by Diana Kiel, Coordinator of Technical Services.</p>
     </section>
 
-    <section>
-        <h1>Credit</h1>
-        <p>ITPS Fellow and Ryan Library staff have been working on the inventory data underlying the Archival Research Database for years. See the table below for how many item records have been created, enhanced, or reviewed by each team member.</p>
-        <table id="credit-table">
-            <th></th>
-            {% for task in tasks %}
-                <th>{{ task.1 }}</th>
-            {% endfor %}
-            {% for user in users %}
-                <tr>
-                    {% for value in user %}
-                        <td> {{ value }} </td>
+    <section class="bg-white p-12 mb-12" id="credit">
+        <h1 class="text-iona-maroon text-2xl font-sans">Credit</h1>
+        <p class="mb-4">ITPS Fellows and Ryan Library staff have been working on the inventory data underlying the Archival Research Database for years. See the table below for how many item records have been created, enhanced, or reviewed by each team member.</p>
+        <div class="overflow-x-auto">
+            <table class="w-full table-auto">
+                <thead class="font-sans text-sm text-iona-maroon">
+                    <tr>
+                        <th class="text-left"></th>
+                        {% for task in tasks %}
+                            <th class="text-right p-2">{{ task.1 }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            {% for value in user %}
+                                <td class="{% if forloop.first %}text-left{% else %}text-right{% endif %} p-2">{{ value }}</td>
+                            {% endfor %}
+                        </tr>
                     {% endfor %}
-                </tr>
-            {% endfor %}
-        </table>
+                </tbody>
+            </table>
+        </div>
     </section>
 
-    <section>
-        <h1>Technical Specifications</h1>
-        <p>The Archival Research Database has been built in Django and PostgreSQL, with D3.js and Leaflet used to create visualizations based on live data. To see the code, visit <a href="https://github.com/hepplerj/itps-research-db">the GitHub repository</a>. All code has been released under GPLv3. For questions regarding the software, please contact <a href="https://jasonheppler.org">Dr. Jason Heppler</a>.</p>
+    <section class="bg-white p-12 mb-12">
+        <h1 class="text-iona-maroon text-2xl font-sans">Technical Specifications</h1>
+        <p class="mb-4">The Archival Research Database has been built in Django and PostgreSQL, with D3.js and Leaflet used to create visualizations based on live data. To see the code, visit <a href="https://github.com/hepplerj/itps-research-db" class="text-iona-maroon hover:text-iona-aqua-green">the GitHub repository</a>. All code has been released under GPLv3. For questions regarding the software, please contact <a href="https://jasonheppler.org" class="text-iona-maroon hover:text-iona-aqua-green">Dr. Jason Heppler</a>.</p>
     </section>
-
-
 {% endblock %}
+
