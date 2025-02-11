@@ -2,11 +2,16 @@ import django_filters
 import django_tables2 as tables
 from django import forms
 from django.contrib.postgres.forms import DateRangeField as FormDateRangeField
-from django.db.models import Q
+from django.db.models import F, Func, Q
 from django.urls import reverse
 from psycopg2.extras import DateRange
 
-from .models import Item
+from .models import Item, Item_Creator, TGM_Genre
+
+
+class YearExtract(Func):
+    function = "EXTRACT"
+    template = "%(function)s(YEAR FROM %(expressions)s)"
 
 
 class DateRangeFilter(django_filters.Filter):
@@ -28,15 +33,31 @@ class ItemTable(tables.Table):
         },
         verbose_name="Title",
     )
+    pub_date = tables.Column(
+        verbose_name="Date Range",
+        attrs={
+            "td": {
+                "class": "align-middle text-center whitespace-nowrap text-sm",
+                "style": "min-width: 200px;",
+            },
+            "th": {"class": "text-sm", "style": "min-width: 200px;"},
+        },
+    )
     tgm_genre = tables.Column(verbose_name="Genre")
-    record_status = tables.Column(verbose_name="Status")
+
+    def render_pub_date(self, value):
+        if value and value.lower and value.upper:
+            return (
+                f"{value.lower.strftime('%Y-%m-%d')}—{value.upper.strftime('%Y-%m-%d')}"
+            )
+        return "—"  # None values
 
     class Meta:
         model = Item
         fields = (
             "title",
+            "pub_date",
             "tgm_genre",
-            "record_status",
         )
         attrs = {
             "class": "table-fixed min-w-full divide-y divide-gray-300",
@@ -60,7 +81,7 @@ class ItemFilter(django_filters.FilterSet):
         ),
     )
     tgm_genre = django_filters.ModelChoiceFilter(
-        queryset=Item.objects.values_list("tgm_genre", flat=True).distinct(),
+        queryset=TGM_Genre.objects.all().order_by("name"),
         label="Genre",
         widget=forms.Select(
             attrs={
@@ -68,6 +89,17 @@ class ItemFilter(django_filters.FilterSet):
             }
         ),
     )
+    # creator = django_filters.ChoiceFilter(
+    #     choices=Item_Creator.objects.all().order_by(
+    #         "person__name",
+    #     ),
+    #     label="Creator",
+    #     widget=forms.Select(
+    #         attrs={
+    #             "class": "w-full rounded-md border-gray-300 shadow-sm focus:border-iona-maroon focus:ring-iona-maroon",
+    #         }
+    #     ),
+    # )
     record_status = django_filters.ChoiceFilter(
         choices=Item.RECORD_STATUS_CHOICES,
         widget=forms.Select(
@@ -78,7 +110,7 @@ class ItemFilter(django_filters.FilterSet):
     )
     date_start = django_filters.DateFilter(
         field_name="pub_date",
-        lookup_expr="lower__gte",
+        lookup_expr="contains",  # Changed from lower__gte
         label="Start Date",
         widget=forms.DateInput(
             attrs={
@@ -89,7 +121,7 @@ class ItemFilter(django_filters.FilterSet):
     )
     date_end = django_filters.DateFilter(
         field_name="pub_date",
-        lookup_expr="upper__lte",
+        lookup_expr="contains",  # Changed from upper__lte
         label="End Date",
         widget=forms.DateInput(
             attrs={
@@ -98,10 +130,26 @@ class ItemFilter(django_filters.FilterSet):
             }
         ),
     )
+    # year = django_filters.ChoiceFilter(
+    #     label="Year",
+    #     method="filter_year",
+    #     empty_label="All Years",
+    #     widget=forms.Select(
+    #         attrs={
+    #             "class": "w-full rounded-md border-gray-300 shadow-sm focus:border-iona-maroon focus:ring-iona-maroon",
+    #         }
+    #     ),
+    # )
 
     class Meta:
         model = Item
-        fields = ["search", "tgm_genre", "record_status", "date_start", "date_end"]
+        fields = [
+            "search",
+            "tgm_genre",
+            "record_status",
+            "date_start",
+            "date_end",
+        ]
 
     def filter_start_date(self, queryset, name, value):
         if value:
@@ -133,3 +181,30 @@ class ItemFilter(django_filters.FilterSet):
             )
 
         return queryset.filter(query).distinct()
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #
+    #     # Get all dates and extract years manually
+    #     dates = Item.objects.exclude(pub_date__isnull=True).values_list(
+    #         "pub_date", flat=True
+    #     )
+    #     years = set()
+    #     for daterange in dates:
+    #         if daterange and daterange.lower:
+    #             years.add(daterange.lower.year)
+    #
+    #     years = sorted(years)
+    #     self.filters["year"].extra["choices"] = [
+    #         (str(year), str(year)) for year in years
+    #     ]
+    #
+    # def filter_year(self, queryset, name, value):
+    #     if value:
+    #         start_date = f"{value}-01-01"
+    #         end_date = f"{value}-12-31"
+    #         return queryset.filter(
+    #             pub_date__isnull=False,  # Exclude null dates
+    #             pub_date__overlap=(start_date, end_date),
+    #         )
+    #     return queryset

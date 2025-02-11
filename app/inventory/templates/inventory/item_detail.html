@@ -19,7 +19,7 @@
                         <h3 class="text-lg font-semibold text-iona-maroon mb-4">Publication Details</h3>
                         <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <dt class="font-medium text-gray-600">Date Range</dt>
+                                <dt class="font-medium text-gray-600"><strong>Date Range</strong></dt>
                                 <dd>
                                     {% if object.pub_date %}
                                         {{ object.pub_date.lower|date:"d M Y" }}
@@ -32,11 +32,11 @@
                                 </dd>
                             </div>
                             <div>
-                                <dt class="font-medium text-gray-600">Genre</dt>
+                                <dt class="font-medium text-gray-600"><strong>Genre</strong></dt>
                                 <dd>{{ object.tgm_genre|default:"Not specified" }}</dd>
                             </div>
                             <div class="sm:col-span-2">
-                                <dt class="font-medium text-gray-600">Places of Publication</dt>
+                                <dt class="font-medium text-gray-600"><strong>Places of Publication</strong></dt>
                                 <dd>
                                     {% for place in object.pub_places.all %}
                                         {{ place }}{% if not forloop.last %}, {% endif %}
@@ -79,15 +79,15 @@
                         <h3 class="text-lg font-semibold text-iona-maroon mb-4">Physical Details</h3>
                         <dl class="grid grid-cols-1 gap-4">
                             <div>
-                                <dt class="font-medium text-gray-600">Size</dt>
+                                <dt class="font-medium text-gray-600"><strong>Size</strong></dt>
                                 <dd>{{ object.size|default:"Not specified" }}</dd>
                             </div>
                             <div>
-                                <dt class="font-medium text-gray-600">Physical Description</dt>
+                                <dt class="font-medium text-gray-600"><strong>Physical Description</strong></dt>
                                 <dd>{{ object.physical_description|default:"Not specified" }}</dd>
                             </div>
                             <div>
-                                <dt class="font-medium text-gray-600">Condition Notes</dt>
+                                <dt class="font-medium text-gray-600"><strong>Condition Notes</strong></dt>
                                 <dd>{{ object.condition_notes|default:"Not specified" }}</dd>
                             </div>
                         </dl>
@@ -110,6 +110,18 @@
                         </ul>
                     </div>
 
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-iona-maroon mb-4">Digitization</h3>
+                        {% if object.image %}
+                            <img src="{{ object.image.url }}" alt="{{ object.image_alt}}">
+                        {% endif %}
+
+                        {% if object.oclc_permalink %}
+                            <p>OCLC permalink: <a class="underline hover:no-underline" href="{{ object.oclc_permalink}}">{{ object.oclc_permalink }}</a></p>
+                        {% endif %}
+                    </div>
+
+
                     {% if object.notes %}
                         <div class="bg-white rounded-lg shadow p-6">
                             <h3 class="text-lg font-semibold text-iona-maroon mb-4">Additional Notes</h3>
@@ -124,17 +136,18 @@
                     <h3 class="text-lg font-semibold text-iona-maroon mb-4">Collection Details</h3>
                     <dl class="space-y-4">
                         <div>
-                            <dt class="font-medium text-gray-600">Original Source</dt>
+                            <dt class="font-medium text-gray-600"><strong>Original Source</strong></dt>
                             <dd>{{ object.original_source|default:"Not specified" }}</dd>
                         </div>
                         <div>
-                            <dt class="font-medium text-gray-600">Holdings</dt>
+                            <dt class="font-medium text-gray-600"><strong>Holdings</strong></dt>
                             <dd>{{ object.get_iona_holdings_display|default:"Not specified" }}</dd>
                         </div>
                         <div>
-                            <dt class="font-medium text-gray-600">Digitization</dt>
+                            <dt class="font-medium text-gray-600"><strong>Digitization</strong></dt>
                             <dd>{{ object.digitization_recommendation|default:"Not specified" }}</dd>
                         </div>
+
                     </dl>
                 </div>
 
