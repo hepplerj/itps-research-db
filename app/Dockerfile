@@ -11,7 +11,7 @@ ENV PYTHONUNBUFFERED 1
 # install system dependencies
 RUN apt-get update \
     && apt-get install -y postgresql postgresql-contrib gcc python3-dev libpq-dev netcat-traditional curl \
-    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g npm@latest \
     && apt-get clean \
