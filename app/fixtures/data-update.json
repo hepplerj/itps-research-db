@@ -14348,7 +14348,7 @@
       "single_date": null,
       "page_count": null,
       "dimensions": null,
-      "pub_places": [14, 20]
+      "pub_places": [20, 14]
     }
   },
   {
@@ -15643,7 +15643,7 @@
       "single_date": null,
       "page_count": null,
       "dimensions": null,
-      "pub_places": [20, 32]
+      "pub_places": [32, 20]
     }
   },
   {
@@ -16568,7 +16568,7 @@
       "single_date": null,
       "page_count": null,
       "dimensions": null,
-      "pub_places": [20, 32]
+      "pub_places": [32, 20]
     }
   },
   {
@@ -16642,7 +16642,7 @@
       "single_date": null,
       "page_count": null,
       "dimensions": null,
-      "pub_places": [20, 32]
+      "pub_places": [32, 20]
     }
   },
   {
@@ -16679,7 +16679,7 @@
       "single_date": null,
       "page_count": null,
       "dimensions": null,
-      "pub_places": [20, 32]
+      "pub_places": [32, 20]
     }
   },
   {
@@ -18566,7 +18566,7 @@
       "single_date": null,
       "page_count": null,
       "dimensions": null,
-      "pub_places": [7, 20, 27, 34]
+      "pub_places": [34, 27, 20, 7]
     }
   },
   {
@@ -30164,6 +30164,566 @@
     "fields": { "user": 5, "item_record": 9, "task": "reviewed" }
   },
   {
+    "model": "organizations.organization",
+    "pk": 3,
+    "fields": {
+      "name": "Advocates of Common Sense",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 4,
+    "fields": {
+      "name": "American Tract Society",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": "http://viaf.org/viaf/137807954/",
+      "wikipedia": null,
+      "org_bio": "",
+      "notes": ""
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 5,
+    "fields": {
+      "name": "Austin & Co.",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 10,
+    "fields": {
+      "name": "Benjamin Edes and Sons",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 14,
+    "fields": {
+      "name": "Berry, Rogers, and Berry",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 20,
+    "fields": {
+      "name": "Byrne, Moore, and Jones",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 21,
+    "fields": {
+      "name": "C. & G. Kearsley",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 27,
+    "fields": {
+      "name": "Charles R. & George Webster",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 31,
+    "fields": {
+      "name": "Cobbett and Morgan",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 40,
+    "fields": {
+      "name": "Dean and Munday",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 46,
+    "fields": {
+      "name": "Edes and Gill",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 50,
+    "fields": {
+      "name": "English Press",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 52,
+    "fields": {
+      "name": "F. W. Thomas & Sohne",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 56,
+    "fields": {
+      "name": "Forskaren Publishing Co.",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 65,
+    "fields": {
+      "name": "Greeley & McElrath",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 69,
+    "fields": {
+      "name": "Hall and Sellers",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 72,
+    "fields": {
+      "name": "Hartley, Adlard, and Son",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 77,
+    "fields": {
+      "name": "Hogan & McElroy",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 78,
+    "fields": {
+      "name": "Hudson and Goodwin",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 106,
+    "fields": {
+      "name": "London Corresponding Society",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 107,
+    "fields": {
+      "name": "Lord and Taylor",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 110,
+    "fields": {
+      "name": "Manning and Loring",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 112,
+    "fields": {
+      "name": "Mason & Lane",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 117,
+    "fields": {
+      "name": "Mott and Lyon",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 132,
+    "fields": {
+      "name": "Reed and Barton",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 136,
+    "fields": {
+      "name": "Richardson, et al",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 142,
+    "fields": {
+      "name": "Russell and Cutler",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 145,
+    "fields": {
+      "name": "Samuel Freer and Son",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 149,
+    "fields": {
+      "name": "Southwick and Pelsue",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 150,
+    "fields": {
+      "name": "Styner and Cist",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 151,
+    "fields": {
+      "name": "Swain, Abell, and Simmons",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 152,
+    "fields": {
+      "name": "T. & J. Swords",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 164,
+    "fields": {
+      "name": "Temple of Reason Press",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 167,
+    "fields": {
+      "name": "The London Printing and Publishing Company",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 168,
+    "fields": {
+      "name": "The Proprietors",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 177,
+    "fields": {
+      "name": "W. & T. Bradford",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 179,
+    "fields": {
+      "name": "W. Dawson and Co.",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 189,
+    "fields": {
+      "name": "William and Thomas Bradford",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 194,
+    "fields": {
+      "name": "Laurie and Whittle",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
+    "model": "organizations.organization",
+    "pk": 195,
+    "fields": {
+      "name": "New Era Publishing Co. Proprieters",
+      "start_year": null,
+      "end_year": null,
+      "main_location": null,
+      "viaf": null,
+      "wikipedia": null,
+      "org_bio": null,
+      "notes": null
+    }
+  },
+  {
     "model": "people.person",
     "pk": 1,
     "fields": {
@@ -33561,563 +34121,939 @@
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add Genre (TGM)",
+      "content_type": 1,
+      "codename": "add_tgm_genre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change Genre (TGM)",
+      "content_type": 1,
+      "codename": "change_tgm_genre"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 3,
     "fields": {
-      "name": "Advocates of Common Sense",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can delete Genre (TGM)",
+      "content_type": 1,
+      "codename": "delete_tgm_genre"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
     "pk": 4,
     "fields": {
-      "name": "American Tract Society",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": "http://viaf.org/viaf/137807954/",
-      "wikipedia": null,
-      "org_bio": "",
-      "notes": ""
+      "name": "Can view Genre (TGM)",
+      "content_type": 1,
+      "codename": "view_tgm_genre"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
     "pk": 5,
     "fields": {
-      "name": "Austin & Co.",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can add Earlier Inventory",
+      "content_type": 2,
+      "codename": "add_original_source"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change Earlier Inventory",
+      "content_type": 2,
+      "codename": "change_original_source"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete Earlier Inventory",
+      "content_type": 2,
+      "codename": "delete_original_source"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view Earlier Inventory",
+      "content_type": 2,
+      "codename": "view_original_source"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add item",
+      "content_type": 3,
+      "codename": "add_item"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 10,
     "fields": {
-      "name": "Benjamin Edes and Sons",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can change item",
+      "content_type": 3,
+      "codename": "change_item"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete item",
+      "content_type": 3,
+      "codename": "delete_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view item",
+      "content_type": 3,
+      "codename": "view_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add Creator Role",
+      "content_type": 4,
+      "codename": "add_creator_role"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 14,
     "fields": {
-      "name": "Berry, Rogers, and Berry",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can change Creator Role",
+      "content_type": 4,
+      "codename": "change_creator_role"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete Creator Role",
+      "content_type": 4,
+      "codename": "delete_creator_role"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view Creator Role",
+      "content_type": 4,
+      "codename": "view_creator_role"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add Creator",
+      "content_type": 5,
+      "codename": "add_item_creator"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change Creator",
+      "content_type": 5,
+      "codename": "change_item_creator"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete Creator",
+      "content_type": 5,
+      "codename": "delete_item_creator"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 20,
     "fields": {
-      "name": "Byrne, Moore, and Jones",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can view Creator",
+      "content_type": 5,
+      "codename": "view_item_creator"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
     "pk": 21,
     "fields": {
-      "name": "C. & G. Kearsley",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can add credit",
+      "content_type": 6,
+      "codename": "add_credit"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change credit",
+      "content_type": 6,
+      "codename": "change_credit"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete credit",
+      "content_type": 6,
+      "codename": "delete_credit"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view credit",
+      "content_type": 6,
+      "codename": "view_credit"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add organization",
+      "content_type": 7,
+      "codename": "add_organization"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change organization",
+      "content_type": 7,
+      "codename": "change_organization"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 27,
     "fields": {
-      "name": "Charles R. & George Webster",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can delete organization",
+      "content_type": 7,
+      "codename": "delete_organization"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view organization",
+      "content_type": 7,
+      "codename": "view_organization"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add membership",
+      "content_type": 8,
+      "codename": "add_membership"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change membership",
+      "content_type": 8,
+      "codename": "change_membership"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 31,
     "fields": {
-      "name": "Cobbett and Morgan",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can delete membership",
+      "content_type": 8,
+      "codename": "delete_membership"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view membership",
+      "content_type": 8,
+      "codename": "view_membership"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add person",
+      "content_type": 9,
+      "codename": "add_person"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change person",
+      "content_type": 9,
+      "codename": "change_person"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete person",
+      "content_type": 9,
+      "codename": "delete_person"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view person",
+      "content_type": 9,
+      "codename": "view_person"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add region",
+      "content_type": 10,
+      "codename": "add_region"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change region",
+      "content_type": 10,
+      "codename": "change_region"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete region",
+      "content_type": 10,
+      "codename": "delete_region"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 40,
     "fields": {
-      "name": "Dean and Munday",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can view region",
+      "content_type": 10,
+      "codename": "view_region"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add state",
+      "content_type": 11,
+      "codename": "add_state"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change state",
+      "content_type": 11,
+      "codename": "change_state"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete state",
+      "content_type": 11,
+      "codename": "delete_state"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view state",
+      "content_type": 11,
+      "codename": "view_state"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add location",
+      "content_type": 12,
+      "codename": "add_location"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 46,
     "fields": {
-      "name": "Edes and Gill",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can change location",
+      "content_type": 12,
+      "codename": "change_location"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete location",
+      "content_type": 12,
+      "codename": "delete_location"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view location",
+      "content_type": 12,
+      "codename": "view_location"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add empire",
+      "content_type": 13,
+      "codename": "add_empire"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 50,
     "fields": {
-      "name": "English Press",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can change empire",
+      "content_type": 13,
+      "codename": "change_empire"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete empire",
+      "content_type": 13,
+      "codename": "delete_empire"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 52,
     "fields": {
-      "name": "F. W. Thomas & Sohne",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can view empire",
+      "content_type": 13,
+      "codename": "view_empire"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add claim",
+      "content_type": 14,
+      "codename": "add_claim"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change claim",
+      "content_type": 14,
+      "codename": "change_claim"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete claim",
+      "content_type": 14,
+      "codename": "delete_claim"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 56,
     "fields": {
-      "name": "Forskaren Publishing Co.",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can view claim",
+      "content_type": 14,
+      "codename": "view_claim"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 15,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 15,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 15,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 15,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 16,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 16,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 16,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 16,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 65,
     "fields": {
-      "name": "Greeley & McElrath",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can add group",
+      "content_type": 17,
+      "codename": "add_group"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 17,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 17,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 17,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 69,
     "fields": {
-      "name": "Hall and Sellers",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can add user",
+      "content_type": 18,
+      "codename": "add_user"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 18,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 18,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 72,
     "fields": {
-      "name": "Hartley, Adlard, and Son",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can view user",
+      "content_type": 18,
+      "codename": "view_user"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 19,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 19,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 19,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 19,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
     "pk": 77,
     "fields": {
-      "name": "Hogan & McElroy",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can add session",
+      "content_type": 20,
+      "codename": "add_session"
     }
   },
   {
-    "model": "organizations.organization",
+    "model": "auth.permission",
     "pk": 78,
     "fields": {
-      "name": "Hudson and Goodwin",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can change session",
+      "content_type": 20,
+      "codename": "change_session"
     }
   },
   {
-    "model": "organizations.organization",
-    "pk": 106,
+    "model": "auth.permission",
+    "pk": 79,
     "fields": {
-      "name": "London Corresponding Society",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can delete session",
+      "content_type": 20,
+      "codename": "delete_session"
     }
   },
   {
-    "model": "organizations.organization",
-    "pk": 107,
+    "model": "auth.permission",
+    "pk": 80,
     "fields": {
-      "name": "Lord and Taylor",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "name": "Can view session",
+      "content_type": 20,
+      "codename": "view_session"
     }
   },
   {
-    "model": "organizations.organization",
-    "pk": 110,
+    "model": "auth.user",
+    "pk": 1,
     "fields": {
-      "name": "Manning and Loring",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "password": "pbkdf2_sha256$870000$SPcQ8OJXSg8nssmUc55Zzc$fvj6zmEfZ8hdpHtx5XOgSzfhFHMMrWXO9SgXJ39t8rs=",
+      "last_login": "2025-02-12T13:49:44.378Z",
+      "is_superuser": true,
+      "username": "jheppler",
+      "first_name": "",
+      "last_name": "",
+      "email": "jason.heppler@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-11-19T03:13:19.166Z",
+      "groups": [],
+      "user_permissions": []
     }
   },
   {
-    "model": "organizations.organization",
-    "pk": 112,
+    "model": "auth.user",
+    "pk": 2,
     "fields": {
-      "name": "Mason & Lane",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "password": "pbkdf2_sha256$870000$iBEGrECfbo1trZjUiYkGMU$voRBtGNNk/Z3j+Jd5JhwcT5U55k4iu0BoUxItaynWJc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user1",
+      "first_name": "user",
+      "last_name": "user",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-11-19T03:16:26Z",
+      "groups": [],
+      "user_permissions": []
     }
   },
   {
-    "model": "organizations.organization",
-    "pk": 117,
+    "model": "auth.user",
+    "pk": 3,
     "fields": {
-      "name": "Mott and Lyon",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "password": "pbkdf2_sha256$870000$kVCpTEyGczR8Z5sDvmZyaw$1/iVi0u0fsi4HwZTGTDOXHlcLYlsqNP7A/di+GWkhHc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user2",
+      "first_name": "user",
+      "last_name": "user",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-11-19T03:16:39Z",
+      "groups": [],
+      "user_permissions": []
     }
   },
   {
-    "model": "organizations.organization",
-    "pk": 132,
+    "model": "auth.user",
+    "pk": 4,
     "fields": {
-      "name": "Reed and Barton",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "password": "pbkdf2_sha256$870000$GHiwBNA4crCecpru9HcwCI$m91P2gsmI+BMhCd+Gw/SHKO2mlJSBTCu8lXvoLhFVvE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user3",
+      "first_name": "user",
+      "last_name": "user",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-11-19T03:16:49Z",
+      "groups": [],
+      "user_permissions": []
     }
   },
   {
-    "model": "organizations.organization",
-    "pk": 136,
+    "model": "auth.user",
+    "pk": 5,
     "fields": {
-      "name": "Richardson, et al",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "password": "pbkdf2_sha256$870000$JSJdQ4bxAuaUQoX4BHpM1v$x1xgUELx+CJbDLKraxj/DwSXRTu1mpqw5mBC9gj+nYg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user4",
+      "first_name": "user4",
+      "last_name": "user4",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-11-19T03:17:11Z",
+      "groups": [],
+      "user_permissions": []
     }
   },
   {
-    "model": "organizations.organization",
-    "pk": 142,
+    "model": "auth.user",
+    "pk": 6,
     "fields": {
-      "name": "Russell and Cutler",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "password": "pbkdf2_sha256$870000$l69Q9qfZ74t5QnPO9q59HM$34DjIDm8eVSmPuTV50WlQvlRGrmU6co8ry76xs5ZYPE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user5",
+      "first_name": "user5",
+      "last_name": "user5",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-11-19T03:17:34Z",
+      "groups": [],
+      "user_permissions": []
     }
   },
   {
-    "model": "organizations.organization",
-    "pk": 145,
-    "fields": {
-      "name": "Samuel Freer and Son",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": { "app_label": "inventory", "model": "tgm_genre" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 149,
-    "fields": {
-      "name": "Southwick and Pelsue",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": { "app_label": "inventory", "model": "original_source" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 150,
-    "fields": {
-      "name": "Styner and Cist",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": { "app_label": "inventory", "model": "item" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 151,
-    "fields": {
-      "name": "Swain, Abell, and Simmons",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": { "app_label": "inventory", "model": "creator_role" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 152,
-    "fields": {
-      "name": "T. & J. Swords",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": { "app_label": "inventory", "model": "item_creator" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 164,
-    "fields": {
-      "name": "Temple of Reason Press",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": { "app_label": "inventory", "model": "credit" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 167,
-    "fields": {
-      "name": "The London Printing and Publishing Company",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": { "app_label": "organizations", "model": "organization" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 168,
-    "fields": {
-      "name": "The Proprietors",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": { "app_label": "organizations", "model": "membership" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 177,
-    "fields": {
-      "name": "W. & T. Bradford",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": { "app_label": "people", "model": "person" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 179,
-    "fields": {
-      "name": "W. Dawson and Co.",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": { "app_label": "places", "model": "region" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 189,
-    "fields": {
-      "name": "William and Thomas Bradford",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": { "app_label": "places", "model": "state" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 194,
-    "fields": {
-      "name": "Laurie and Whittle",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
-    }
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": { "app_label": "places", "model": "location" }
   },
   {
-    "model": "organizations.organization",
-    "pk": 195,
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": { "app_label": "places", "model": "empire" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": { "app_label": "places", "model": "claim" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": { "app_label": "admin", "model": "logentry" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": { "app_label": "auth", "model": "permission" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": { "app_label": "auth", "model": "group" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": { "app_label": "auth", "model": "user" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": { "app_label": "contenttypes", "model": "contenttype" }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 20,
+    "fields": { "app_label": "sessions", "model": "session" }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "yg1wl6sjgtdbegndhhoi0lq2yzt67lvm",
     "fields": {
-      "name": "New Era Publishing Co. Proprieters",
-      "start_year": null,
-      "end_year": null,
-      "main_location": null,
-      "viaf": null,
-      "wikipedia": null,
-      "org_bio": null,
-      "notes": null
+      "session_data": ".eJxVjMsOwiAQRf-FtSHMyKO4dN9vIDNApWogKe3K-O_apAvd3nPOfYlA21rC1vMS5iQuAsTpd2OKj1x3kO5Ub03GVtdlZrkr8qBdji3l5_Vw_w4K9fKtNTJpN5nojdLeAbE16BQOaNlYB4qMAdReKSKIFM84gMvskRxwnki8P68MNvM:1tiD7Y:lSCUfGV3Dhhzv8dvwQQDuayvYP44MD6Ezy57TpCVZNg",
+      "expire_date": "2025-02-26T13:49:44.378Z"
     }
   }
 ]

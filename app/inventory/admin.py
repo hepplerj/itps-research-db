@@ -64,7 +64,17 @@ class ItemAdmin(admin.ModelAdmin):
     list_filter = ("tgm_genre", "digitization_recommendation", "pub_date_certainty")
     search_fields = ["accession_number", "title", "other_description", "notes"]
     fieldsets = (
-        (None, {"fields": ("accession_number", "record_status")}),
+        (
+            None,
+            {
+                "fields": (
+                    "accession_number",
+                    "record_status",
+                    "image",
+                    "image_alt_text",
+                )
+            },
+        ),
         (
             None,
             {
