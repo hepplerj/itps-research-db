@@ -175,8 +175,6 @@ class ItemFilter(django_filters.FilterSet):
             query |= (
                 Q(title__icontains=keyword)
                 | Q(physical_description__icontains=keyword)
-                | Q(other_description__icontains=keyword)
-                | Q(condition_notes__icontains=keyword)
                 | Q(notes__icontains=keyword)
             )
 

@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.core.serializers import serialize
 from django.http import HttpResponse, JsonResponse
@@ -5,7 +6,9 @@ from django.shortcuts import render
 from django.views.generic import DetailView
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
+from import_export.formats.base_formats import XLSX
 from inventory.models import Credit, Item
+from inventory.resources import FullDatasetResource
 from inventory.tables import ItemFilter, ItemTable
 from organizations.models import Organization
 from people.models import Person
@@ -111,3 +114,27 @@ class ItemDetailView(DetailView):
             }
             return JsonResponse(data)
         return super().get(request, *args, **kwargs)
+
+
+@login_required
+@user_passes_test(lambda u: u.is_staff)
+def export_full_dataset(request):
+    """
+    Export all data from all models in a single XLSX file with multiple sheets.
+    Only accessible to staff users.
+    """
+    resource = FullDatasetResource()
+
+    # Create response with XLSX content
+    response = HttpResponse(
+        content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={
+            "Content-Disposition": 'attachment; filename="full_dataset_export.xlsx"'
+        },
+    )
+
+    # Generate the export data directly
+    export_data = resource.generate_full_export()
+    response.write(export_data)
+
+    return response
