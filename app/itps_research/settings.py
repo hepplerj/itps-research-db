@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "django_bootstrap5",
     "tailwind",
     "theme",
+    "import_export",
     "inventory.apps.InventoryConfig",
     "organizations.apps.OrganizationsConfig",
     "people.apps.PeopleConfig",
