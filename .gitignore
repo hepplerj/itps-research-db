@@ -15,16 +15,14 @@ app/.env
 # Early fixtures for first data load.
 app/*/fixtures/initial*.json
 app/*/fixtures/*.txt
-app/fixtures/users.json
 
 # Django staticfiles directory, created by manage.py collectstatic
 app/staticfiles
 
 # User data, includes passwords
-users-dev.json
-users-prod.json
+app/fixtures/users-dev.json
+app/fixtures/users-prod.json
+app/fixtures/users.json
 
-#Reminder of where to find docker instructions
-DEVNOTES.md
 data/*
 !data/.gitkeep
