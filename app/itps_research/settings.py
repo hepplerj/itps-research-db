@@ -25,26 +25,26 @@ env = environ.Env(
 )
 
 if env("DJANGO_READ_DOT_ENV_FILE", default=True):
-    env.read_env(str(BASE_DIR / ".env"))
+    env.read_env(str(BASE_DIR / ".env.prod"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env(
-    "DJANGO_SECRET_KEY",
-    default="django-insecure cin)v(4&89%_$17s0yezo=t+^1b*mq)=+348r-bv(ms#pm2y2#",
-)
-
-# The following is for DEVELOPMENT ONLY
-DJANGO_SUPERUSER_USERNAME = env("DJANGO_SUPERUSER_USERNAME")
-DJANGO_SUPERUSER_EMAIL = env("DJANGO_SUPERUSER_EMAIL")
-DJANGO_SUPERUSER_PASSWORD = env("DJANGO_SUPERUSER_PASSWORD")
+SECRET_KEY = env("DJANGO_SECRET_KEY",)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(env("DEBUG", default=0))
 
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["localhost"])
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["research.theitsp.org"])
 CSRF_TRUSTED_ORIGINS = env.list(
-    "DJANGO_CSRF_TRUSTED_ORIGINS", default=["http://localhost"]
+    "DJANGO_CSRF_TRUSTED_ORIGINS", default=["https://research.theitsp.org"]
 )
+# HTTPS settings
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
+SESSION_COOKIE_SECURE = env.bool("DJANGO_SESSION_COOKIE_SECURE", default=True)
+CSRF_COOKIE_SECURE = env.bool("DJANGO_CSRF_COOKIE_SECURE", default=True)
+SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=3600)  # Start with 1 hour
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
+SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
 
 # Application definition
 INSTALLED_APPS = [
